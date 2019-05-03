@@ -8,21 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Premierprojet
+namespace _01_Bonjour
 {
     public partial class frmBienvenue : Form
     {
+        private ContentAlignment TopRight;
+
         public frmBienvenue()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
+            lblBienvenueDate.Text = String.Format("{0:dd MMM yyy}", DateTime.Now);
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void lblBienvenueDate_Click(object sender, EventArgs e)
         {
 
         }
