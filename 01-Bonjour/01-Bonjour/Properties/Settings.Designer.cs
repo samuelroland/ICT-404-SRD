@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Premierprojet.Properties
+namespace _01_Bonjour.Properties
 {
 
 

@@ -1,4 +1,4 @@
-﻿namespace Premierprojet
+﻿namespace _01_Bonjour
 {
     partial class frmBienvenue
     {
@@ -28,43 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblBienvenue = new System.Windows.Forms.Label();
+            this.lblBienvenueTexte = new System.Windows.Forms.Label();
             this.lblBienvenueDate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblBienvenue
+            // lblBienvenueTexte
             // 
-            this.lblBienvenue.AutoSize = true;
-            this.lblBienvenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenue.Location = new System.Drawing.Point(36, 23);
-            this.lblBienvenue.Name = "lblBienvenue";
-            this.lblBienvenue.Size = new System.Drawing.Size(260, 25);
-            this.lblBienvenue.TabIndex = 0;
-            this.lblBienvenue.Text = "Bonjour, nous sommes le ";
-            this.lblBienvenue.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblBienvenue.Click += new System.EventHandler(this.label1_Click);
+            this.lblBienvenueTexte.AutoSize = true;
+            this.lblBienvenueTexte.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenueTexte.Location = new System.Drawing.Point(37, 35);
+            this.lblBienvenueTexte.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblBienvenueTexte.Name = "lblBienvenueTexte";
+            this.lblBienvenueTexte.Size = new System.Drawing.Size(255, 24);
+            this.lblBienvenueTexte.TabIndex = 0;
+            this.lblBienvenueTexte.Text = "Bienvenue, nous sommes le ";
             // 
             // lblBienvenueDate
             // 
-            this.lblBienvenueDate.AutoSize = true;
-            this.lblBienvenueDate.Location = new System.Drawing.Point(38, 67);
+            this.lblBienvenueDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenueDate.Location = new System.Drawing.Point(37, 112);
+            this.lblBienvenueDate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblBienvenueDate.Name = "lblBienvenueDate";
-            this.lblBienvenueDate.Size = new System.Drawing.Size(35, 13);
+            this.lblBienvenueDate.Size = new System.Drawing.Size(270, 24);
             this.lblBienvenueDate.TabIndex = 1;
-            this.lblBienvenueDate.Text = "label1";
-            this.lblBienvenueDate.Click += new System.EventHandler(this.label1_Click_1);
+            this.lblBienvenueDate.Text = "...";
+            this.lblBienvenueDate.Click += new System.EventHandler(this.lblBienvenueDate_Click);
             // 
             // frmBienvenue
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(333, 270);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(365, 309);
             this.Controls.Add(this.lblBienvenueDate);
-            this.Controls.Add(this.lblBienvenue);
+            this.Controls.Add(this.lblBienvenueTexte);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmBienvenue";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cours C#";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,7 +74,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblBienvenue;
+        private System.Windows.Forms.Label lblBienvenueTexte;
         private System.Windows.Forms.Label lblBienvenueDate;
     }
 }
