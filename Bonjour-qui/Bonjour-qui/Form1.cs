@@ -44,8 +44,9 @@ namespace Bonjour_qui
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
+        { 
+            // clic sur bouton Quitter - on quitte l'application
+            Application.Exit();
         }
     }
 }

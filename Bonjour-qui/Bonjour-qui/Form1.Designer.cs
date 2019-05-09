@@ -37,7 +37,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btQuitter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblNom
@@ -99,23 +99,23 @@
             this.imageList3.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList3.TransparentColor = System.Drawing.Color.SpringGreen;
             // 
-            // button1
+            // btQuitter
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(283, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 93);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btQuitter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btQuitter.BackgroundImage")));
+            this.btQuitter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btQuitter.Location = new System.Drawing.Point(318, 142);
+            this.btQuitter.Name = "btQuitter";
+            this.btQuitter.Size = new System.Drawing.Size(46, 46);
+            this.btQuitter.TabIndex = 5;
+            this.btQuitter.UseVisualStyleBackColor = true;
+            this.btQuitter.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmBonjourQui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 212);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btQuitter);
             this.Controls.Add(this.btBienvenue);
             this.Controls.Add(this.textBoxNom);
             this.Controls.Add(this.lblBonjourNom);
@@ -137,7 +137,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.ImageList imageList3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btQuitter;
     }
 }
 
