@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBonjourQui));
             this.lblNom = new System.Windows.Forms.Label();
             this.lblBonjourNom = new System.Windows.Forms.Label();
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.btBienvenue = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.btQuitter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -63,12 +59,11 @@
             // 
             // textBoxNom
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(153, 22);
+            this.textBoxNom.Location = new System.Drawing.Point(127, 22);
             this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(193, 20);
+            this.textBoxNom.Size = new System.Drawing.Size(237, 20);
             this.textBoxNom.TabIndex = 2;
             this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
-            this.textBoxNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxNom_KeyPress);
             // 
             // btBienvenue
             // 
@@ -80,24 +75,6 @@
             this.btBienvenue.Text = "Bienvenue";
             this.btBienvenue.UseVisualStyleBackColor = true;
             this.btBienvenue.Click += new System.EventHandler(this.btBienvenue_Click);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageList2
-            // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // imageList3
-            // 
-            this.imageList3.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList3.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList3.TransparentColor = System.Drawing.Color.SpringGreen;
             // 
             // btQuitter
             // 
@@ -134,9 +111,6 @@
         private System.Windows.Forms.Label lblBonjourNom;
         private System.Windows.Forms.TextBox textBoxNom;
         private System.Windows.Forms.Button btBienvenue;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.ImageList imageList2;
-        private System.Windows.Forms.ImageList imageList3;
         private System.Windows.Forms.Button btQuitter;
     }
 }
