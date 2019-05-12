@@ -30,10 +30,16 @@
         {
             this.lblRevenu = new System.Windows.Forms.Label();
             this.lblCoefficient = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBox = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.lblRevenueImposable = new System.Windows.Forms.Label();
+            this.checkBoxDeductionJeune = new System.Windows.Forms.CheckBox();
+            this.checkBoxDeductionTransport = new System.Windows.Forms.CheckBox();
+            this.checkBoxRabais = new System.Windows.Forms.CheckBox();
+            this.textBoxRevenueAnnuel = new System.Windows.Forms.TextBox();
+            this.textBoxCoefficient = new System.Windows.Forms.TextBox();
+            this.textBoxRabais = new System.Windows.Forms.TextBox();
+            this.textBoxDeductionsTransport = new System.Windows.Forms.TextBox();
+            this.textBoxDeductionJeune = new System.Windows.Forms.TextBox();
+            this.btnCalcul = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblRevenu
@@ -52,66 +58,129 @@
             this.lblCoefficient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCoefficient.Location = new System.Drawing.Point(24, 79);
             this.lblCoefficient.Name = "lblCoefficient";
-            this.lblCoefficient.Size = new System.Drawing.Size(46, 18);
+            this.lblCoefficient.Size = new System.Drawing.Size(127, 18);
             this.lblCoefficient.TabIndex = 1;
-            this.lblCoefficient.Text = "label2";
+            this.lblCoefficient.Text = "Coefficient familial";
             // 
-            // label3
+            // lblRevenueImposable
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(93, 318);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.lblRevenueImposable.AutoSize = true;
+            this.lblRevenueImposable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenueImposable.Location = new System.Drawing.Point(93, 312);
+            this.lblRevenueImposable.Name = "lblRevenueImposable";
+            this.lblRevenueImposable.Size = new System.Drawing.Size(20, 18);
+            this.lblRevenueImposable.TabIndex = 2;
+            this.lblRevenueImposable.Text = "...";
             // 
-            // checkBox
+            // checkBoxDeductionJeune
             // 
-            this.checkBox.AutoSize = true;
-            this.checkBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.checkBox.Location = new System.Drawing.Point(96, 145);
-            this.checkBox.Name = "checkBox";
-            this.checkBox.Size = new System.Drawing.Size(101, 22);
-            this.checkBox.TabIndex = 3;
-            this.checkBox.Text = "checkBox1";
-            this.checkBox.UseVisualStyleBackColor = true;
+            this.checkBoxDeductionJeune.AutoSize = true;
+            this.checkBoxDeductionJeune.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.checkBoxDeductionJeune.Location = new System.Drawing.Point(96, 145);
+            this.checkBoxDeductionJeune.Name = "checkBoxDeductionJeune";
+            this.checkBoxDeductionJeune.Size = new System.Drawing.Size(133, 22);
+            this.checkBoxDeductionJeune.TabIndex = 3;
+            this.checkBoxDeductionJeune.Text = "Déduction jeune";
+            this.checkBoxDeductionJeune.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkBoxDeductionTransport
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.checkBox2.Location = new System.Drawing.Point(96, 173);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(101, 22);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBoxDeductionTransport.AutoSize = true;
+            this.checkBoxDeductionTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.checkBoxDeductionTransport.Location = new System.Drawing.Point(96, 173);
+            this.checkBoxDeductionTransport.Name = "checkBoxDeductionTransport";
+            this.checkBoxDeductionTransport.Size = new System.Drawing.Size(157, 22);
+            this.checkBoxDeductionTransport.TabIndex = 5;
+            this.checkBoxDeductionTransport.Text = "Déduction transport";
+            this.checkBoxDeductionTransport.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkBoxRabais
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.checkBox3.Location = new System.Drawing.Point(96, 201);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(101, 22);
-            this.checkBox3.TabIndex = 5;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBoxRabais.AutoSize = true;
+            this.checkBoxRabais.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.checkBoxRabais.Location = new System.Drawing.Point(96, 201);
+            this.checkBoxRabais.Name = "checkBoxRabais";
+            this.checkBoxRabais.Size = new System.Drawing.Size(145, 22);
+            this.checkBoxRabais.TabIndex = 7;
+            this.checkBoxRabais.Text = "Rabais fidélité (%)";
+            this.checkBoxRabais.UseVisualStyleBackColor = true;
+            // 
+            // textBoxRevenueAnnuel
+            // 
+            this.textBoxRevenueAnnuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxRevenueAnnuel.Location = new System.Drawing.Point(187, 27);
+            this.textBoxRevenueAnnuel.Name = "textBoxRevenueAnnuel";
+            this.textBoxRevenueAnnuel.Size = new System.Drawing.Size(143, 24);
+            this.textBoxRevenueAnnuel.TabIndex = 1;
+            this.textBoxRevenueAnnuel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxCoefficient
+            // 
+            this.textBoxCoefficient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxCoefficient.Location = new System.Drawing.Point(269, 73);
+            this.textBoxCoefficient.Name = "textBoxCoefficient";
+            this.textBoxCoefficient.Size = new System.Drawing.Size(61, 24);
+            this.textBoxCoefficient.TabIndex = 2;
+            this.textBoxCoefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxRabais
+            // 
+            this.textBoxRabais.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxRabais.Location = new System.Drawing.Point(269, 199);
+            this.textBoxRabais.Name = "textBoxRabais";
+            this.textBoxRabais.Size = new System.Drawing.Size(61, 24);
+            this.textBoxRabais.TabIndex = 8;
+            this.textBoxRabais.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxDeductionsTransport
+            // 
+            this.textBoxDeductionsTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxDeductionsTransport.Location = new System.Drawing.Point(269, 170);
+            this.textBoxDeductionsTransport.Name = "textBoxDeductionsTransport";
+            this.textBoxDeductionsTransport.Size = new System.Drawing.Size(61, 24);
+            this.textBoxDeductionsTransport.TabIndex = 6;
+            this.textBoxDeductionsTransport.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxDeductionJeune
+            // 
+            this.textBoxDeductionJeune.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.textBoxDeductionJeune.Location = new System.Drawing.Point(269, 143);
+            this.textBoxDeductionJeune.Name = "textBoxDeductionJeune";
+            this.textBoxDeductionJeune.Size = new System.Drawing.Size(61, 24);
+            this.textBoxDeductionJeune.TabIndex = 4;
+            this.textBoxDeductionJeune.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnCalcul
+            // 
+            this.btnCalcul.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnCalcul.Location = new System.Drawing.Point(139, 255);
+            this.btnCalcul.Name = "btnCalcul";
+            this.btnCalcul.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcul.TabIndex = 9;
+            this.btnCalcul.Text = "Calcul";
+            this.btnCalcul.UseVisualStyleBackColor = true;
+            this.btnCalcul.Click += new System.EventHandler(this.btnCalcul_Click);
             // 
             // frmDeductions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 364);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCalcul);
+            this.Controls.Add(this.textBoxDeductionJeune);
+            this.Controls.Add(this.textBoxDeductionsTransport);
+            this.Controls.Add(this.textBoxRabais);
+            this.Controls.Add(this.textBoxCoefficient);
+            this.Controls.Add(this.textBoxRevenueAnnuel);
+            this.Controls.Add(this.checkBoxRabais);
+            this.Controls.Add(this.checkBoxDeductionTransport);
+            this.Controls.Add(this.checkBoxDeductionJeune);
+            this.Controls.Add(this.lblRevenueImposable);
             this.Controls.Add(this.lblCoefficient);
             this.Controls.Add(this.lblRevenu);
             this.Name = "frmDeductions";
             this.Text = "Déductions";
+            this.Load += new System.EventHandler(this.frmDeductions_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,10 +190,16 @@
 
         private System.Windows.Forms.Label lblRevenu;
         private System.Windows.Forms.Label lblCoefficient;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.Label lblRevenueImposable;
+        private System.Windows.Forms.CheckBox checkBoxDeductionJeune;
+        private System.Windows.Forms.CheckBox checkBoxDeductionTransport;
+        private System.Windows.Forms.CheckBox checkBoxRabais;
+        private System.Windows.Forms.TextBox textBoxRevenueAnnuel;
+        private System.Windows.Forms.TextBox textBoxCoefficient;
+        private System.Windows.Forms.TextBox textBoxRabais;
+        private System.Windows.Forms.TextBox textBoxDeductionsTransport;
+        private System.Windows.Forms.TextBox textBoxDeductionJeune;
+        private System.Windows.Forms.Button btnCalcul;
     }
 }
 
