@@ -116,6 +116,7 @@
             this.textBoxRevenueAnnuel.TabIndex = 1;
             this.textBoxRevenueAnnuel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBoxRevenueAnnuel.TextChanged += new System.EventHandler(this.textBoxRevenueAnnuel_TextChanged);
+            this.textBoxRevenueAnnuel.Validated += new System.EventHandler(this.textBoxRevenueAnnuel_Validated);
             // 
             // textBoxCoefficient
             // 
