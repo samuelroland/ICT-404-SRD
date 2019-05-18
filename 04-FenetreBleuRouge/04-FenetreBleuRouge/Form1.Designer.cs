@@ -46,6 +46,7 @@
             this.cmdHautGauche.TabIndex = 0;
             this.cmdHautGauche.Text = "Haut/Gauche";
             this.cmdHautGauche.UseVisualStyleBackColor = true;
+            this.cmdHautGauche.Click += new System.EventHandler(this.cmdHautGauche_Click);
             // 
             // cmdHautDroite
             // 
@@ -55,6 +56,7 @@
             this.cmdHautDroite.TabIndex = 1;
             this.cmdHautDroite.Text = "Haut/Droite";
             this.cmdHautDroite.UseVisualStyleBackColor = true;
+            this.cmdHautDroite.Click += new System.EventHandler(this.cmdHautDroite_Click);
             // 
             // cmdBasGauche
             // 
@@ -64,6 +66,7 @@
             this.cmdBasGauche.TabIndex = 2;
             this.cmdBasGauche.Text = "Bas/Gauche";
             this.cmdBasGauche.UseVisualStyleBackColor = true;
+            this.cmdBasGauche.Click += new System.EventHandler(this.cmdBasGauche_Click);
             // 
             // cmdBasDroite
             // 
@@ -73,6 +76,7 @@
             this.cmdBasDroite.TabIndex = 3;
             this.cmdBasDroite.Text = "Bas/Droite";
             this.cmdBasDroite.UseVisualStyleBackColor = true;
+            this.cmdBasDroite.Click += new System.EventHandler(this.cmdBasDroite_Click);
             // 
             // cmdBleu
             // 
@@ -82,6 +86,7 @@
             this.cmdBleu.TabIndex = 4;
             this.cmdBleu.Text = "Bleu";
             this.cmdBleu.UseVisualStyleBackColor = true;
+            this.cmdBleu.Click += new System.EventHandler(this.cmdBleu_Click);
             // 
             // cmdRouge
             // 
@@ -91,7 +96,7 @@
             this.cmdRouge.TabIndex = 5;
             this.cmdRouge.Text = "Rouge";
             this.cmdRouge.UseVisualStyleBackColor = true;
-            this.cmdRouge.Click += new System.EventHandler(this.Button2_Click);
+            this.cmdRouge.Click += new System.EventHandler(this.cmdRouge_Click);
             // 
             // cmdStats
             // 
@@ -101,6 +106,7 @@
             this.cmdStats.TabIndex = 6;
             this.cmdStats.Text = "Stats";
             this.cmdStats.UseVisualStyleBackColor = true;
+            this.cmdStats.Click += new System.EventHandler(this.cmdStats_Click);
             // 
             // cmdQuitter
             // 
@@ -110,6 +116,7 @@
             this.cmdQuitter.TabIndex = 7;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
+            this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // frmFenetreBleuRouge
             // 
@@ -127,6 +134,7 @@
             this.Name = "frmFenetreBleuRouge";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fenêtre";
+            this.Load += new System.EventHandler(this.frmFenetreBleuRouge_Load);
             this.ResumeLayout(false);
 
         }
