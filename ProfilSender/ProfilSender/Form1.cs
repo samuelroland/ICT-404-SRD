@@ -121,7 +121,7 @@ namespace ProfilSender
             //Trouver la position du point:
             for (int i = 0; i < username.Length; i++)
             {
-                WIP ici.
+                //WIP ici.
             }
             
 
