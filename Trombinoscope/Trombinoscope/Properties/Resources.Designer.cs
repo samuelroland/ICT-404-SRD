@@ -73,9 +73,59 @@ namespace Trombinoscope.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap angelique1 {
+            get {
+                object obj = ResourceManager.GetObject("angelique1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap content {
+            get {
+                object obj = ResourceManager.GetObject("content", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cool {
+            get {
+                object obj = ResourceManager.GetObject("cool", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nerveux {
+            get {
+                object obj = ResourceManager.GetObject("nerveux", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap papel_20_de_20_parede_20_do__20timão_20_wallpaper_20_4__1_ {
             get {
                 object obj = ResourceManager.GetObject("papel%20-de%20-parede%20-do-%20timão%20-wallpaper%20(4)[1]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pascontent {
+            get {
+                object obj = ResourceManager.GetObject("pascontent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

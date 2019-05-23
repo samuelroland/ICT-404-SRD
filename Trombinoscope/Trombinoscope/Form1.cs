@@ -20,6 +20,7 @@ namespace Trombinoscope
         const int salut=2;
         private void frmTrombinoscope_Load(object sender, EventArgs e)
         {
+            string username= Environment.UserName;
             Control label1 = new System.Windows.Forms.Label(); // Création d'un contrôle Label
             label1.BackColor = System.Drawing.Color.Yellow; // Couleur de fond
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", // Police
@@ -28,10 +29,11 @@ namespace Trombinoscope
             System.Drawing.GraphicsUnit.Point,
             ((byte)(0)));
             label1.Location = new System.Drawing.Point(36, 24); // Position
-            label1.Name = "label1"; // Nom
+            label1.Name = "label1"+username; // Nom
             label1.Size = new System.Drawing.Size(115, 25); // Dimensions
             label1.Text = username; // Texte
             Controls.Add(label1); // Ajout au formulaire
+            MessageBox.Show("le nom du label 1 est: "+ label1.Name);
         }
 
         private void label1_Click(object sender, EventArgs e)
