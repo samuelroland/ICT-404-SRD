@@ -54,6 +54,7 @@
             this.lstATerre.MultiColumn = true;
             this.lstATerre.Name = "lstATerre";
             this.lstATerre.Size = new System.Drawing.Size(183, 316);
+            this.lstATerre.Sorted = true;
             this.lstATerre.TabIndex = 0;
             this.lstATerre.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -80,10 +81,13 @@
             // lstABord
             // 
             this.lstABord.FormattingEnabled = true;
+            this.lstABord.Items.AddRange(new object[] {
+            "salut"});
             this.lstABord.Location = new System.Drawing.Point(315, 48);
             this.lstABord.Name = "lstABord";
             this.lstABord.Size = new System.Drawing.Size(183, 316);
             this.lstABord.TabIndex = 4;
+            this.lstABord.DoubleClick += new System.EventHandler(this.lstABord_DoubleClick);
             // 
             // cmdMettreABord
             // 
@@ -103,6 +107,7 @@
             this.cmdMettreATerre.TabIndex = 6;
             this.cmdMettreATerre.Text = "<=======";
             this.cmdMettreATerre.UseVisualStyleBackColor = true;
+            this.cmdMettreATerre.Click += new System.EventHandler(this.cmdMettreATerre_Click);
             // 
             // frmArcheDeNoe
             // 
@@ -118,6 +123,7 @@
             this.Name = "frmArcheDeNoe";
             this.Padding = new System.Windows.Forms.Padding(30);
             this.Text = "Arche de Noé";
+            this.Load += new System.EventHandler(this.frmArcheDeNoe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
