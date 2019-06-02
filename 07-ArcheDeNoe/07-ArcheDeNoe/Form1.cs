@@ -82,9 +82,9 @@ namespace _07_ArcheDeNoe
             for (int i = 0; i < nbitem; i++)
             {
                 //Créer un nouvel Item dans la liste de gauche.
-                lstATerre.Items.Add(lstABord.Items[i].ToString());
+                lstATerre.Items.Add(lstABord.Items[0].ToString());  //L'item 0, car une fois enlevé, la liste repars de 0. l'élement suivant a donc comme index 0.
                 //Enlever l'item ancien de la liste de droite.
-                lstABord.Items.RemoveAt(i);
+                lstABord.Items.RemoveAt(0);
             }
         }
 
