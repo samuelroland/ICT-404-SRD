@@ -41,7 +41,7 @@ namespace _07_ArcheDeNoe
             //Si il n'y a pas d'Items dans la liste de gauche, désactiver le button:
             if (lstATerre.Items.Count == 0)
             {
-                cmdMettreATerre.Enabled = false;
+                cmdMettreABord.Enabled = false;
 
             }
         }
