@@ -1,4 +1,9 @@
-﻿using System;
+﻿//Programme 07: Arche de Noé, Moodle
+//Samuel Roland
+//3.06.2019
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +43,7 @@ namespace _07_ArcheDeNoe
                 //Enlever l'item ancien de la liste de gauche.
                 lstATerre.Items.RemoveAt(lstATerre.SelectedIndex);
             }
-            //Si il n'y a pas d'Items dans la liste de gauche, désactiver le button:
+            //Si il n'y a pas d'Items dans la liste de gauche, désactiver le button MettreABord
             if (lstATerre.Items.Count == 0)
             {
                 cmdMettreABord.Enabled = false;
@@ -61,7 +66,7 @@ namespace _07_ArcheDeNoe
                 //Enlever l'item ancien de la liste de droite.
                 lstABord.Items.RemoveAt(lstABord.SelectedIndex);
             }
-            //Si il n'y a pas d'Items dans la liste de droite, désactiver le button:
+            //Si il n'y a pas d'Items dans la liste de droite, désactiver le button MettreATerre
             if (lstABord.Items.Count == 0)
             {
                 cmdMettreATerre.Enabled = false;

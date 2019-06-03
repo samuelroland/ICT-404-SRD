@@ -40,28 +40,34 @@ namespace _03_Deductions
             //Calcul du Revenu imposable:
 
             //Si revenu annuel brut ou coefficient familial sont vides, msg erreur:
-            if (textBoxRevenueAnnuel.Text=="" || textBoxCoefficient.Text=="")
+            if (textBoxRevenueAnnuel.Text == "" || textBoxCoefficient.Text == "")
             {
                 lblRevenueImposable.Text = "Erreur! Remplissez les champs 1 et 2!";
             }
-            else
-            {   
-                //Sinon on peut faire les calculs:
-                //Définir les variables et convertir les valeurs en string dans des int ou float:
-                int revenubrut=int.Parse(textBoxRevenueAnnuel.Text);
-                float coefficientfamilial=float.Parse(textBoxCoefficient.Text);
-                int deductionjeune = int.Parse(textBoxDeductionJeune.Text);
-                int deductiontransport = int.Parse(textBoxDeductionsTransport.Text);
-                float rabais = float.Parse(textBoxRabais.Text);
-                float revenuimposable;
+            else //Sinon on peut faire les calculs:
+            {
+                //Définir les variables:
+                int revenubrut; //Prend la valeur de revenu annuel brut
+                float coefficientfamilial;  //Prend la valeur du coefficient familial
+                int deductionjeune; //Prend la déduction de Deduction jeune
+                int deductiontransport; //prend la déduction pour les transports
+                float rabais;   //prend la valeur du rabais
+                float revenuimposable;  //Prend le résultat du calcul pour le revenu imposable
 
+                //convertir les valeurs en string dans des int ou float:
+                revenubrut = int.Parse(textBoxRevenueAnnuel.Text);
+                coefficientfamilial = float.Parse(textBoxCoefficient.Text);
+                deductionjeune = int.Parse(textBoxDeductionJeune.Text);
+                deductiontransport = int.Parse(textBoxDeductionsTransport.Text);
+                rabais = float.Parse(textBoxRabais.Text);
+                
                 //Attention. Pour rentrer une valeur de type float, il faut mettre une "," et pas un "."
 
                 //Calcul:
                 revenuimposable = revenubrut / coefficientfamilial;
                 if (checkBoxRabais.CheckState == CheckState.Checked)
                 {
-                    revenuimposable -= revenuimposable * rabais/100;
+                    revenuimposable -= revenuimposable * rabais / 100;
                 }
                 if (checkBoxDeductionJeune.CheckState == CheckState.Checked)
                 {
