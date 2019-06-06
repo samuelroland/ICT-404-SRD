@@ -34,6 +34,7 @@
             this.cmdSupprimer = new System.Windows.Forms.Button();
             this.cmdQuitter = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -79,6 +80,7 @@
             this.cmdQuitter.TabIndex = 4;
             this.cmdQuitter.Text = "Quitter";
             this.cmdQuitter.UseVisualStyleBackColor = true;
+            this.cmdQuitter.Click += new System.EventHandler(this.cmdQuitter_Click);
             // 
             // listBox1
             // 
@@ -88,11 +90,20 @@
             this.listBox1.Size = new System.Drawing.Size(120, 212);
             this.listBox1.TabIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(362, 253);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 53);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "label1";
+            // 
             // frmComboBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 386);
+            this.ClientSize = new System.Drawing.Size(532, 386);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.cmdQuitter);
             this.Controls.Add(this.cmdSupprimer);
@@ -113,6 +124,7 @@
         private System.Windows.Forms.Button cmdSupprimer;
         private System.Windows.Forms.Button cmdQuitter;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

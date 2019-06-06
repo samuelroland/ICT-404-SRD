@@ -16,5 +16,12 @@ namespace _09_Combobox
         {
             InitializeComponent();
         }
+
+        private void cmdQuitter_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Voulez vous vraiment quitter ?", "Quitter ?");
+
+            Application.Exit();
+        }
     }
 }
