@@ -19,7 +19,7 @@ namespace Demineur
         private void charger(object sender)
         {
             MessageBox.Show("son nom c " + sender + this.Text);
-            cmd[i].text = "safsd";
+            //cmd[i].text = "safsd";
         }
         private void cmdtest_Click(object sender, EventArgs e)
         {
