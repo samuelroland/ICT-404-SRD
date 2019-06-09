@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Exo: 03-Deductions exo de Moodle
+//Samuel Roland
+//mai 2019
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
