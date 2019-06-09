@@ -16,7 +16,7 @@ namespace _09_Combobox
 {
     public partial class frmListComboBox : Form
     {
-        int lstlastselect;  //numéro de la liste où le dernièr élement a été sélectionné.
+        int lstlastselectitem;  //numéro de la liste où le dernièr élement a été sélectionné.
 
         public frmListComboBox()
         {
@@ -25,34 +25,91 @@ namespace _09_Combobox
 
         private void cmdQuitter_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Voulez vous vraiment quitter ?", "Quitter ?");
 
-            Application.Exit();
+            DialogResult Res = MessageBox.Show("Voulez-vous vraiment quitter l'application ?", "Fermeture de l'application", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+            if (Res == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
+        private void noelementselected()
+        {
+            MessageBox.Show("Pas d'élément sélectionné");
+        }
+        private bool checkpaspresent(string itemtext)  //vérifie que l'item n'existe pas déja dans la lstFinale.
+        {
+            //Scan de la lstFinale:
+            for (int i = 0; i < lstFinale.Items.Count; i++)
+            {
+                if (itemtext == lstFinale.Items[i].ToString())
+                {
+                    MessageBox.Show("litem est " + itemtext + " et le numero dans la boucle for est " + i);
+                    return true;    //Si il trouve un item du meme nom il va retourner true direct.
+                }
+                //Si il a pas trouvé, il retourne false:
 
+            }
+            return false;
+        }
+        private void msgdejapresent()   //msgbox que l'item est deja dans la liste finale.
+        {
+            MessageBox.Show("Element déjà présent dans la liste finale !");
+        }
         private void CmdAjouter_Click(object sender, EventArgs e)
         {
-           
-            switch (lstlastselect)
+
+            switch (lstlastselectitem)
             {
                 case 1:
-                    lstFinale.Items.Add(cboOperateurs.SelectedItem);
+                    if (cboOperateurs.SelectedIndex != -1)
+                    {
+                        if (checkpaspresent(cboOperateurs.SelectedItem.ToString()) == false)
+                        {
+                            lstFinale.Items.Add(cboOperateurs.SelectedItem);
+                        }
+                        else
+                        {
+                            msgdejapresent();
+                        }
+                    }
+                    else
+                    {
+                        noelementselected();
+                    }
                     break;
                 case 2:
-                    lstFinale.Items.Add(lstEcoles.SelectedItem);
+                    if (lstEcoles.SelectedIndex != -1)
+                    {
+                        if (checkpaspresent(lstEcoles.SelectedItem.ToString())==false)
+                        {
+                            lstFinale.Items.Add(lstEcoles.SelectedItem);
+                        }
+                    }
+                    else
+                    {
+                        noelementselected();
+                    }
                     break;
                 case 3:
-                    lstFinale.Items.Add(cboGymnase.SelectedItem);
+                    if (cboGymnase.SelectedIndex != -1)
+                    {
+                        if (checkpaspresent(cboGymnase.SelectedItem.ToString())==false)
+                        {
+                            lstFinale.Items.Add(cboGymnase.SelectedItem);
+                        }
+                    }
+                    else
+                    {
+                        noelementselected();
+                    }
                     break;
 
                 default:
                     break;
             }
 
-            //else
-            {
-                MessageBox.Show("Pas d'élément sélectionné");
-            }
+            //actualiser nb écoles selected dans lstFinale:
+            counterelementlst();
         }
 
         private void CmdEffacer_Click(object sender, EventArgs e)
@@ -64,27 +121,42 @@ namespace _09_Combobox
             {
                 lstFinale.Items.RemoveAt(0);
             }
-
+            counterelementlst();
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lstlastselect = 1;
-        }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lstlastselect = 2;
-        }
-
-        private void ComboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            lstlastselect = 3;
-        }
 
         private void FrmListComboBox_Load(object sender, EventArgs e)
         {
             cboOperateurs.SelectedIndex = 0;
+        }
+        private void counterelementlst()    //compte le nb d'élement dans la lstbox finale.
+        {
+            lblNbEcolesSelected.Text = lstFinale.Items.Count.ToString();
+        }
+
+        private void CmdSupprimer_Click(object sender, EventArgs e)
+        {
+            if (lstFinale.SelectedIndex != -1)
+            {
+                lstFinale.Items.RemoveAt(lstFinale.SelectedIndex);
+            }
+            counterelementlst();
+        }
+
+        private void CboOperateurs_Enter(object sender, EventArgs e)
+        {
+            lstlastselectitem = 1;
+        }
+
+        private void LstEcoles_Enter(object sender, EventArgs e)
+        {
+            lstlastselectitem = 2;
+        }
+
+        private void CboGymnase_Enter(object sender, EventArgs e)
+        {
+            lstlastselectitem = 3;
         }
     }
 }

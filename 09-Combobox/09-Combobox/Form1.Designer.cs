@@ -36,8 +36,10 @@
             this.lstEcoles = new System.Windows.Forms.ListBox();
             this.lblEcolesselected = new System.Windows.Forms.Label();
             this.lstFinale = new System.Windows.Forms.ListBox();
-            this.lblnbecolesselected = new System.Windows.Forms.Label();
+            this.lblNbEcolesSelected = new System.Windows.Forms.Label();
             this.cboGymnase = new System.Windows.Forms.ComboBox();
+            this.grpNbEcolesSelected = new System.Windows.Forms.GroupBox();
+            this.grpNbEcolesSelected.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboOperateurs
@@ -54,7 +56,7 @@
             this.cboOperateurs.Size = new System.Drawing.Size(121, 21);
             this.cboOperateurs.Sorted = true;
             this.cboOperateurs.TabIndex = 0;
-            this.cboOperateurs.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
+            this.cboOperateurs.Enter += new System.EventHandler(this.CboOperateurs_Enter);
             // 
             // cmdAjouter
             // 
@@ -84,6 +86,7 @@
             this.cmdSupprimer.TabIndex = 3;
             this.cmdSupprimer.Text = "Supprimer";
             this.cmdSupprimer.UseVisualStyleBackColor = true;
+            this.cmdSupprimer.Click += new System.EventHandler(this.CmdSupprimer_Click);
             // 
             // cmdQuitter
             // 
@@ -103,21 +106,21 @@
             "CEPM",
             "CPNV",
             "ECL",
-            "EMTL",
             "EPCL",
-            "EPSIC"});
+            "EPSIC",
+            "ETML"});
             this.lstEcoles.Location = new System.Drawing.Point(39, 85);
             this.lstEcoles.Name = "lstEcoles";
             this.lstEcoles.Size = new System.Drawing.Size(120, 212);
             this.lstEcoles.Sorted = true;
             this.lstEcoles.TabIndex = 5;
-            this.lstEcoles.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.lstEcoles.Enter += new System.EventHandler(this.LstEcoles_Enter);
             // 
             // lblEcolesselected
             // 
-            this.lblEcolesselected.Location = new System.Drawing.Point(362, 314);
+            this.lblEcolesselected.Location = new System.Drawing.Point(362, 305);
             this.lblEcolesselected.Name = "lblEcolesselected";
-            this.lblEcolesselected.Size = new System.Drawing.Size(123, 21);
+            this.lblEcolesselected.Size = new System.Drawing.Size(123, 17);
             this.lblEcolesselected.TabIndex = 6;
             this.lblEcolesselected.Text = "écoles sélectionnées";
             // 
@@ -129,14 +132,15 @@
             this.lstFinale.Size = new System.Drawing.Size(120, 264);
             this.lstFinale.TabIndex = 7;
             // 
-            // lblnbecolesselected
+            // lblNbEcolesSelected
             // 
-            this.lblnbecolesselected.AutoSize = true;
-            this.lblnbecolesselected.Location = new System.Drawing.Point(409, 335);
-            this.lblnbecolesselected.Name = "lblnbecolesselected";
-            this.lblnbecolesselected.Size = new System.Drawing.Size(13, 13);
-            this.lblnbecolesselected.TabIndex = 8;
-            this.lblnbecolesselected.Text = "0";
+            this.lblNbEcolesSelected.AutoSize = true;
+            this.lblNbEcolesSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNbEcolesSelected.Location = new System.Drawing.Point(51, 8);
+            this.lblNbEcolesSelected.Name = "lblNbEcolesSelected";
+            this.lblNbEcolesSelected.Size = new System.Drawing.Size(18, 20);
+            this.lblNbEcolesSelected.TabIndex = 8;
+            this.lblNbEcolesSelected.Text = "0";
             // 
             // cboGymnase
             // 
@@ -152,7 +156,16 @@
             this.cboGymnase.Name = "cboGymnase";
             this.cboGymnase.Size = new System.Drawing.Size(121, 21);
             this.cboGymnase.TabIndex = 9;
-            this.cboGymnase.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
+            this.cboGymnase.Enter += new System.EventHandler(this.CboGymnase_Enter);
+            // 
+            // grpNbEcolesSelected
+            // 
+            this.grpNbEcolesSelected.Controls.Add(this.lblNbEcolesSelected);
+            this.grpNbEcolesSelected.Location = new System.Drawing.Point(365, 325);
+            this.grpNbEcolesSelected.Name = "grpNbEcolesSelected";
+            this.grpNbEcolesSelected.Size = new System.Drawing.Size(120, 30);
+            this.grpNbEcolesSelected.TabIndex = 10;
+            this.grpNbEcolesSelected.TabStop = false;
             // 
             // frmListComboBox
             // 
@@ -160,7 +173,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 386);
             this.Controls.Add(this.cboGymnase);
-            this.Controls.Add(this.lblnbecolesselected);
             this.Controls.Add(this.lstFinale);
             this.Controls.Add(this.lblEcolesselected);
             this.Controls.Add(this.lstEcoles);
@@ -169,11 +181,13 @@
             this.Controls.Add(this.cmdEffacer);
             this.Controls.Add(this.cmdAjouter);
             this.Controls.Add(this.cboOperateurs);
+            this.Controls.Add(this.grpNbEcolesSelected);
             this.Name = "frmListComboBox";
             this.Text = "ListBox et ComboBox avec des styles différents";
             this.Load += new System.EventHandler(this.FrmListComboBox_Load);
+            this.grpNbEcolesSelected.ResumeLayout(false);
+            this.grpNbEcolesSelected.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -187,8 +201,9 @@
         private System.Windows.Forms.ListBox lstEcoles;
         private System.Windows.Forms.Label lblEcolesselected;
         private System.Windows.Forms.ListBox lstFinale;
-        private System.Windows.Forms.Label lblnbecolesselected;
+        private System.Windows.Forms.Label lblNbEcolesSelected;
         private System.Windows.Forms.ComboBox cboGymnase;
+        private System.Windows.Forms.GroupBox grpNbEcolesSelected;
     }
 }
 
