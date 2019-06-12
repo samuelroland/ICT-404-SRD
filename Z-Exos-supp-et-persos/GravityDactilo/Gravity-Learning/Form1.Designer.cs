@@ -37,11 +37,11 @@
             this.lblPointsInfo = new System.Windows.Forms.Label();
             this.lblProgression = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblAsteroide = new System.Windows.Forms.Label();
             this.tmrVitesse = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grpEspace = new System.Windows.Forms.GroupBox();
             this.lblNomEspace = new System.Windows.Forms.Label();
+            this.lblAsteroide = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpEspace.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             // prgProgressionJeu
             // 
             this.prgProgressionJeu.BackColor = System.Drawing.Color.Snow;
-            this.prgProgressionJeu.Location = new System.Drawing.Point(108, 0);
+            this.prgProgressionJeu.Location = new System.Drawing.Point(109, 1);
             this.prgProgressionJeu.Name = "prgProgressionJeu";
             this.prgProgressionJeu.Size = new System.Drawing.Size(572, 35);
             this.prgProgressionJeu.TabIndex = 5;
@@ -104,7 +104,7 @@
             // lblProgression
             // 
             this.lblProgression.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgression.Location = new System.Drawing.Point(300, 6);
+            this.lblProgression.Location = new System.Drawing.Point(309, 9);
             this.lblProgression.Name = "lblProgression";
             this.lblProgression.Size = new System.Drawing.Size(152, 23);
             this.lblProgression.TabIndex = 7;
@@ -121,17 +121,6 @@
             this.label1.Text = "0";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblAsteroide
-            // 
-            this.lblAsteroide.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblAsteroide.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsteroide.Location = new System.Drawing.Point(300, 0);
-            this.lblAsteroide.Name = "lblAsteroide";
-            this.lblAsteroide.Size = new System.Drawing.Size(79, 32);
-            this.lblAsteroide.TabIndex = 9;
-            this.lblAsteroide.Text = "zébré";
-            this.lblAsteroide.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // tmrVitesse
             // 
             this.tmrVitesse.Enabled = true;
@@ -143,9 +132,9 @@
             this.pictureBox1.BackgroundImage = global::Gravity_Learning.Properties.Resources.logogalaxie;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.InitialImage = global::Gravity_Learning.Properties.Resources.logogalaxie;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 38);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 170);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 108);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
@@ -155,6 +144,7 @@
             this.grpEspace.BackgroundImage = global::Gravity_Learning.Properties.Resources.espace1;
             this.grpEspace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.grpEspace.Controls.Add(this.lblNomEspace);
+            this.grpEspace.Controls.Add(this.lblAsteroide);
             this.grpEspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpEspace.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.grpEspace.Location = new System.Drawing.Point(108, 38);
@@ -172,6 +162,8 @@
             this.lblNomEspace.TabIndex = 10;
             this.lblNomEspace.Text = "Espace Interstellaire - Bras d\'Orion";
             // 
+            
+            // 
             // frmGravityDactylo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,14 +172,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblProgression);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.prgProgressionJeu);
             this.Controls.Add(this.lblPointsInfo);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblTapezInfo);
             this.Controls.Add(this.grpEspace);
             this.Controls.Add(this.cmdPause);
             this.Controls.Add(this.cmdReDemarrer);
-            this.Controls.Add(this.prgProgressionJeu);
-            this.Controls.Add(this.lblAsteroide);
             this.Name = "frmGravityDactylo";
             this.Text = "Gravity Dactylo";
             this.Load += new System.EventHandler(this.FrmGravityDactylo_Load);
@@ -209,10 +200,10 @@
         private System.Windows.Forms.Label lblPointsInfo;
         private System.Windows.Forms.Label lblProgression;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblAsteroide;
         private System.Windows.Forms.Timer tmrVitesse;
         private System.Windows.Forms.Label lblNomEspace;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblAsteroide;
     }
 }
 
