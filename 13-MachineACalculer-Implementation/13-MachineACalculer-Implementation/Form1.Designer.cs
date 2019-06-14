@@ -1,6 +1,6 @@
 ﻿namespace _13_MachineACalculer_Implementation
 {
-    partial class Form1
+    partial class frmMachineACalculer
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMachineACalculerInfo = new System.Windows.Forms.Label();
             this.cmd1 = new System.Windows.Forms.Button();
             this.cmd2 = new System.Windows.Forms.Button();
@@ -45,6 +46,9 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.lblNbEntier1 = new System.Windows.Forms.Label();
             this.lblNbEntier2 = new System.Windows.Forms.Label();
+            this.lblOperateurs = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMachineACalculerInfo
@@ -214,11 +218,25 @@
             this.lblNbEntier2.TabIndex = 18;
             this.lblNbEntier2.Text = "Nombre entier 2";
             // 
-            // Form1
+            // lblOperateurs
+            // 
+            this.lblOperateurs.AutoSize = true;
+            this.lblOperateurs.Location = new System.Drawing.Point(97, 88);
+            this.lblOperateurs.Name = "lblOperateurs";
+            this.lblOperateurs.Size = new System.Drawing.Size(16, 13);
+            this.lblOperateurs.TabIndex = 19;
+            this.lblOperateurs.Text = " ?";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // frmMachineACalculer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 330);
+            this.Controls.Add(this.lblOperateurs);
             this.Controls.Add(this.lblNbEntier2);
             this.Controls.Add(this.lblNbEntier1);
             this.Controls.Add(this.lblResult);
@@ -236,8 +254,9 @@
             this.Controls.Add(this.cmd2);
             this.Controls.Add(this.cmd1);
             this.Controls.Add(this.lblMachineACalculerInfo);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMachineACalculer";
+            this.Text = "Machine à calculer";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +280,8 @@
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Label lblNbEntier1;
         private System.Windows.Forms.Label lblNbEntier2;
+        private System.Windows.Forms.Label lblOperateurs;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
