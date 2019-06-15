@@ -63,6 +63,16 @@ namespace Gravity_Learning.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap asteroid1 {
+            get {
+                object obj = ResourceManager.GetObject("asteroid1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap espace1 {
             get {
                 object obj = ResourceManager.GetObject("espace1", resourceCulture);
