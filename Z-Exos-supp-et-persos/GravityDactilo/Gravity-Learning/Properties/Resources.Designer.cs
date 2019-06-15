@@ -113,9 +113,29 @@ namespace Gravity_Learning.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap horizon_terre {
+            get {
+                object obj = ResourceManager.GetObject("horizon-terre", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logogalaxie {
             get {
                 object obj = ResourceManager.GetObject("logogalaxie", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logogalaxie_ConvertImage {
+            get {
+                object obj = ResourceManager.GetObject("logogalaxie-ConvertImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

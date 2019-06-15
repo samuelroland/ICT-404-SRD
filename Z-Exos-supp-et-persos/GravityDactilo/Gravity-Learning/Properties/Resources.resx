@@ -118,22 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="espace4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\espace4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="espace2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\espace2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logogalaxie-ConvertImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logogalaxie-ConvertImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logogalaxie" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logogalaxie.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="espace3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\espace3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="espace1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espace1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="espace2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espace2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="asteroid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\asteroid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espace3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espace3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espace4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espace4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="horizon-terre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\horizon-terre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
