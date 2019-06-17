@@ -223,9 +223,9 @@
             this.lblOperateurs.AutoSize = true;
             this.lblOperateurs.Location = new System.Drawing.Point(97, 88);
             this.lblOperateurs.Name = "lblOperateurs";
-            this.lblOperateurs.Size = new System.Drawing.Size(16, 13);
+            this.lblOperateurs.Size = new System.Drawing.Size(13, 13);
             this.lblOperateurs.TabIndex = 19;
-            this.lblOperateurs.Text = " ?";
+            this.lblOperateurs.Text = "+";
             // 
             // errorProvider1
             // 
@@ -256,6 +256,7 @@
             this.Controls.Add(this.lblMachineACalculerInfo);
             this.Name = "frmMachineACalculer";
             this.Text = "Machine à calculer";
+            this.Load += new System.EventHandler(this.frmMachineACalculer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

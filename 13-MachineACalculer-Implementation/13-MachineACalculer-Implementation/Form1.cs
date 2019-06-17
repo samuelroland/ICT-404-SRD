@@ -31,74 +31,86 @@ namespace _13_MachineACalculer_Implementation
             //Selon le numnb:
             if (numnb == true)
             {
-                firstnb = float.Parse(btn.Text);
-                lblNbEntier1.Text = btn.Text;
-                if (dejapremiercalcul==true)
-                {
-                    resultcalcul();
-                }
+                lblNbEntier1.Text += btn.Text;
+                firstnb = float.Parse(lblNbEntier1.Text);
             }
             else
             {
-                secondnb = float.Parse(btn.Text);
-                lblNbEntier2.Text = btn.Text;
-                //Puisque c'est le second nombre, il faut directement calculer le resultat:
-                resultcalcul();
+                lblNbEntier2.Text += btn.Text;
+                secondnb = float.Parse(lblNbEntier2.Text);
             }
+            resultcalcul();
 
-            numnb = !numnb;
         }
         Button btnOperateur;
         private void Operateurs_Click(object sender, EventArgs e)
         {
             btnOperateur = sender as Button;
-            btnOperateur = sender as Button;
+            
             //Afficher le symbole entre les deux nombres entiers:
             lblOperateurs.Text = btnOperateur.Text;
-
+            numnb = !numnb;
+            resultcalcul();
         }
 
-        bool dejapremiercalcul=false; //indique si il y a déjà eu un premier calcul 
+        bool dejapremiercalcul = false; //indique si il y a déjà eu un premier calcul 
+
+
+
+
         private void resultcalcul()
         {
-            
-            float result = 0;
-            switch (btnOperateur.Text)
+            if (lblNbEntier1.Text=="" || lblNbEntier2.Text=="")
             {
-                case "+":
-                    if (dejapremiercalcul == false)
-                    {
-                        result = firstnb + secondnb;
-                    }
-                    else
-                    {
-                        result += firstnb;
-                    }
-                    break;
-                case "-":
-                    if (dejapremiercalcul == false)
-                    {
-                        result = firstnb - secondnb;
-                    }
-                    else
-                    {
-                        result -= firstnb;
-
-                    }
-                    
-                    break;
-                case "/":
-                    result = firstnb / secondnb;
-                    dejapremiercalcul = true;
-                    break;
-                case "*":
-                    result = firstnb * secondnb;
-                    dejapremiercalcul = false;
-                    break;
-                default:
-                    break;
+                lblResult.Text = "En attente...";
             }
-            lblResult.Text = string.Format("Résultat ({0:F2})", result);
+            else
+            {
+
+                float result = 0;
+                switch (lblOperateurs.Text)
+                {
+                    case "+":
+                        if (dejapremiercalcul == false)
+                        {
+                            result = firstnb + secondnb;
+                        }
+                        else
+                        {
+                            result += firstnb;
+                        }
+                        break;
+                    case "-":
+                        if (dejapremiercalcul == false)
+                        {
+                            result = firstnb - secondnb;
+                        }
+                        else
+                        {
+                            result -= firstnb;
+
+                        }
+
+                        break;
+                    case "/":
+                        result = firstnb / secondnb;
+                        dejapremiercalcul = true;
+                        break;
+                    case "*":
+                        result = firstnb * secondnb;
+                        dejapremiercalcul = false;
+                        break;
+                    default:
+                        break;
+                }
+                lblResult.Text = string.Format("Résultat ({0:F2})", result);
+            }
+        }
+
+        private void frmMachineACalculer_Load(object sender, EventArgs e)
+        {
+            lblNbEntier1.Text = "";
+            lblNbEntier2.Text = "";
         }
     }
 }
