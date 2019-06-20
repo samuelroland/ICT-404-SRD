@@ -36,15 +36,15 @@ namespace _09_Combobox
         {
             MessageBox.Show("Pas d'élément sélectionné");
         }
-        private bool checkpaspresent(string itemtext)  //vérifie que l'item n'existe pas déja dans la lstFinale.
+        private bool checkpaspresent(string itemtext)  //vérifie que l'item qu'on veut envoyer, n'existe pas déja dans la lstFinale.
         {
             //Scan de la lstFinale:
             for (int i = 0; i < lstFinale.Items.Count; i++)
             {
                 if (itemtext == lstFinale.Items[i].ToString())
                 {
-                    MessageBox.Show("litem est " + itemtext + " et le numero dans la boucle for est " + i);
-                    return true;    //Si il trouve un item du meme nom il va retourner true direct.
+                    //Si il trouve un item du meme nom il va retourner true direct.
+                    return true;
                 }
                 //Si il a pas trouvé, il retourne false:
 
@@ -57,7 +57,6 @@ namespace _09_Combobox
         }
         private void CmdAjouter_Click(object sender, EventArgs e)
         {
-
             switch (lstlastselectitem)
             {
                 case 1:
@@ -80,9 +79,13 @@ namespace _09_Combobox
                 case 2:
                     if (lstEcoles.SelectedIndex != -1)
                     {
-                        if (checkpaspresent(lstEcoles.SelectedItem.ToString())==false)
+                        if (checkpaspresent(lstEcoles.SelectedItem.ToString()) == false)
                         {
                             lstFinale.Items.Add(lstEcoles.SelectedItem);
+                        }
+                        else
+                        {
+                            msgdejapresent();
                         }
                     }
                     else
@@ -93,9 +96,13 @@ namespace _09_Combobox
                 case 3:
                     if (cboGymnase.SelectedIndex != -1)
                     {
-                        if (checkpaspresent(cboGymnase.SelectedItem.ToString())==false)
+                        if (checkpaspresent(cboGymnase.SelectedItem.ToString()) == false)
                         {
                             lstFinale.Items.Add(cboGymnase.SelectedItem);
+                        }
+                        else
+                        {
+                            msgdejapresent();
                         }
                     }
                     else
@@ -140,6 +147,10 @@ namespace _09_Combobox
             if (lstFinale.SelectedIndex != -1)
             {
                 lstFinale.Items.RemoveAt(lstFinale.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Il n'y a rien de sélectionné dans la liste de droite!");
             }
             counterelementlst();
         }

@@ -40,29 +40,29 @@
             this.tmrVitesse = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grpEspace = new System.Windows.Forms.GroupBox();
+            this.lblAst3 = new System.Windows.Forms.Label();
+            this.pctAst3 = new System.Windows.Forms.PictureBox();
+            this.lblAst4 = new System.Windows.Forms.Label();
+            this.pctAst4 = new System.Windows.Forms.PictureBox();
+            this.lblAst5 = new System.Windows.Forms.Label();
+            this.pctAst5 = new System.Windows.Forms.PictureBox();
+            this.lblAst6 = new System.Windows.Forms.Label();
+            this.pctAst6 = new System.Windows.Forms.PictureBox();
+            this.lblAst1 = new System.Windows.Forms.Label();
+            this.pctAst1 = new System.Windows.Forms.PictureBox();
             this.lblAst2 = new System.Windows.Forms.Label();
             this.pctAst2 = new System.Windows.Forms.PictureBox();
             this.lblNomEspace = new System.Windows.Forms.Label();
             this.pctHorizonTerre = new System.Windows.Forms.PictureBox();
-            this.lblAst1 = new System.Windows.Forms.Label();
-            this.pctAst1 = new System.Windows.Forms.PictureBox();
-            this.lblAst6 = new System.Windows.Forms.Label();
-            this.pctAst6 = new System.Windows.Forms.PictureBox();
-            this.lblAst5 = new System.Windows.Forms.Label();
-            this.pctAst5 = new System.Windows.Forms.PictureBox();
-            this.lblAst4 = new System.Windows.Forms.Label();
-            this.pctAst4 = new System.Windows.Forms.PictureBox();
-            this.pctAst3 = new System.Windows.Forms.PictureBox();
-            this.lblAst3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grpEspace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctAst2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctHorizonTerre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst3)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdReDemarrer
@@ -175,6 +175,7 @@
             this.grpEspace.Controls.Add(this.pctAst6);
             this.grpEspace.Controls.Add(this.lblAst1);
             this.grpEspace.Controls.Add(this.pctAst1);
+            this.grpEspace.Controls.Add(this.pctHorizonTerre);
             this.grpEspace.Controls.Add(this.lblAst2);
             this.grpEspace.Controls.Add(this.pctAst2);
             this.grpEspace.Controls.Add(this.lblNomEspace);
@@ -185,6 +186,121 @@
             this.grpEspace.Size = new System.Drawing.Size(600, 400);
             this.grpEspace.TabIndex = 2;
             this.grpEspace.TabStop = false;
+            // 
+            // lblAst3
+            // 
+            this.lblAst3.BackColor = System.Drawing.Color.Transparent;
+            this.lblAst3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAst3.ForeColor = System.Drawing.Color.White;
+            this.lblAst3.Location = new System.Drawing.Point(59, 289);
+            this.lblAst3.Name = "lblAst3";
+            this.lblAst3.Size = new System.Drawing.Size(161, 19);
+            this.lblAst3.TabIndex = 34;
+            this.lblAst3.Text = "astéroide étrange123";
+            this.lblAst3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pctAst3
+            // 
+            this.pctAst3.BackColor = System.Drawing.Color.Transparent;
+            this.pctAst3.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
+            this.pctAst3.Location = new System.Drawing.Point(113, 225);
+            this.pctAst3.Name = "pctAst3";
+            this.pctAst3.Size = new System.Drawing.Size(52, 61);
+            this.pctAst3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctAst3.TabIndex = 33;
+            this.pctAst3.TabStop = false;
+            // 
+            // lblAst4
+            // 
+            this.lblAst4.BackColor = System.Drawing.Color.Transparent;
+            this.lblAst4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAst4.ForeColor = System.Drawing.Color.White;
+            this.lblAst4.Location = new System.Drawing.Point(408, 124);
+            this.lblAst4.Name = "lblAst4";
+            this.lblAst4.Size = new System.Drawing.Size(161, 19);
+            this.lblAst4.TabIndex = 32;
+            this.lblAst4.Text = "astéroide étrange123";
+            this.lblAst4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pctAst4
+            // 
+            this.pctAst4.BackColor = System.Drawing.Color.Transparent;
+            this.pctAst4.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
+            this.pctAst4.Location = new System.Drawing.Point(462, 60);
+            this.pctAst4.Name = "pctAst4";
+            this.pctAst4.Size = new System.Drawing.Size(52, 61);
+            this.pctAst4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctAst4.TabIndex = 31;
+            this.pctAst4.TabStop = false;
+            // 
+            // lblAst5
+            // 
+            this.lblAst5.BackColor = System.Drawing.Color.Transparent;
+            this.lblAst5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAst5.ForeColor = System.Drawing.Color.White;
+            this.lblAst5.Location = new System.Drawing.Point(181, 111);
+            this.lblAst5.Name = "lblAst5";
+            this.lblAst5.Size = new System.Drawing.Size(161, 19);
+            this.lblAst5.TabIndex = 30;
+            this.lblAst5.Text = "astéroide étrange123";
+            this.lblAst5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pctAst5
+            // 
+            this.pctAst5.BackColor = System.Drawing.Color.Transparent;
+            this.pctAst5.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
+            this.pctAst5.Location = new System.Drawing.Point(235, 47);
+            this.pctAst5.Name = "pctAst5";
+            this.pctAst5.Size = new System.Drawing.Size(52, 61);
+            this.pctAst5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctAst5.TabIndex = 29;
+            this.pctAst5.TabStop = false;
+            // 
+            // lblAst6
+            // 
+            this.lblAst6.BackColor = System.Drawing.Color.Transparent;
+            this.lblAst6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAst6.ForeColor = System.Drawing.Color.White;
+            this.lblAst6.Location = new System.Drawing.Point(6, 111);
+            this.lblAst6.Name = "lblAst6";
+            this.lblAst6.Size = new System.Drawing.Size(161, 19);
+            this.lblAst6.TabIndex = 28;
+            this.lblAst6.Text = "astéroide étrange123";
+            this.lblAst6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pctAst6
+            // 
+            this.pctAst6.BackColor = System.Drawing.Color.Transparent;
+            this.pctAst6.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
+            this.pctAst6.Location = new System.Drawing.Point(60, 47);
+            this.pctAst6.Name = "pctAst6";
+            this.pctAst6.Size = new System.Drawing.Size(52, 61);
+            this.pctAst6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctAst6.TabIndex = 27;
+            this.pctAst6.TabStop = false;
+            // 
+            // lblAst1
+            // 
+            this.lblAst1.BackColor = System.Drawing.Color.Transparent;
+            this.lblAst1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAst1.ForeColor = System.Drawing.Color.White;
+            this.lblAst1.Location = new System.Drawing.Point(391, 311);
+            this.lblAst1.Name = "lblAst1";
+            this.lblAst1.Size = new System.Drawing.Size(161, 19);
+            this.lblAst1.TabIndex = 26;
+            this.lblAst1.Text = "astéroide étrange123";
+            this.lblAst1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pctAst1
+            // 
+            this.pctAst1.BackColor = System.Drawing.Color.Transparent;
+            this.pctAst1.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
+            this.pctAst1.Location = new System.Drawing.Point(445, 247);
+            this.pctAst1.Name = "pctAst1";
+            this.pctAst1.Size = new System.Drawing.Size(52, 61);
+            this.pctAst1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pctAst1.TabIndex = 25;
+            this.pctAst1.TabStop = false;
             // 
             // lblAst2
             // 
@@ -223,126 +339,11 @@
             // 
             this.pctHorizonTerre.BackColor = System.Drawing.Color.Transparent;
             this.pctHorizonTerre.BackgroundImage = global::Gravity_Learning.Properties.Resources.horizon_terre;
-            this.pctHorizonTerre.Location = new System.Drawing.Point(-385, 446);
+            this.pctHorizonTerre.Location = new System.Drawing.Point(0, 351);
             this.pctHorizonTerre.Name = "pctHorizonTerre";
             this.pctHorizonTerre.Size = new System.Drawing.Size(600, 49);
             this.pctHorizonTerre.TabIndex = 24;
             this.pctHorizonTerre.TabStop = false;
-            // 
-            // lblAst1
-            // 
-            this.lblAst1.BackColor = System.Drawing.Color.Transparent;
-            this.lblAst1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAst1.ForeColor = System.Drawing.Color.White;
-            this.lblAst1.Location = new System.Drawing.Point(391, 311);
-            this.lblAst1.Name = "lblAst1";
-            this.lblAst1.Size = new System.Drawing.Size(161, 19);
-            this.lblAst1.TabIndex = 26;
-            this.lblAst1.Text = "astéroide étrange123";
-            this.lblAst1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pctAst1
-            // 
-            this.pctAst1.BackColor = System.Drawing.Color.Transparent;
-            this.pctAst1.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
-            this.pctAst1.Location = new System.Drawing.Point(445, 247);
-            this.pctAst1.Name = "pctAst1";
-            this.pctAst1.Size = new System.Drawing.Size(52, 61);
-            this.pctAst1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctAst1.TabIndex = 25;
-            this.pctAst1.TabStop = false;
-            // 
-            // lblAst6
-            // 
-            this.lblAst6.BackColor = System.Drawing.Color.Transparent;
-            this.lblAst6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAst6.ForeColor = System.Drawing.Color.White;
-            this.lblAst6.Location = new System.Drawing.Point(6, 111);
-            this.lblAst6.Name = "lblAst6";
-            this.lblAst6.Size = new System.Drawing.Size(161, 19);
-            this.lblAst6.TabIndex = 28;
-            this.lblAst6.Text = "astéroide étrange123";
-            this.lblAst6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pctAst6
-            // 
-            this.pctAst6.BackColor = System.Drawing.Color.Transparent;
-            this.pctAst6.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
-            this.pctAst6.Location = new System.Drawing.Point(60, 47);
-            this.pctAst6.Name = "pctAst6";
-            this.pctAst6.Size = new System.Drawing.Size(52, 61);
-            this.pctAst6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctAst6.TabIndex = 27;
-            this.pctAst6.TabStop = false;
-            // 
-            // lblAst5
-            // 
-            this.lblAst5.BackColor = System.Drawing.Color.Transparent;
-            this.lblAst5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAst5.ForeColor = System.Drawing.Color.White;
-            this.lblAst5.Location = new System.Drawing.Point(181, 111);
-            this.lblAst5.Name = "lblAst5";
-            this.lblAst5.Size = new System.Drawing.Size(161, 19);
-            this.lblAst5.TabIndex = 30;
-            this.lblAst5.Text = "astéroide étrange123";
-            this.lblAst5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pctAst5
-            // 
-            this.pctAst5.BackColor = System.Drawing.Color.Transparent;
-            this.pctAst5.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
-            this.pctAst5.Location = new System.Drawing.Point(235, 47);
-            this.pctAst5.Name = "pctAst5";
-            this.pctAst5.Size = new System.Drawing.Size(52, 61);
-            this.pctAst5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctAst5.TabIndex = 29;
-            this.pctAst5.TabStop = false;
-            // 
-            // lblAst4
-            // 
-            this.lblAst4.BackColor = System.Drawing.Color.Transparent;
-            this.lblAst4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAst4.ForeColor = System.Drawing.Color.White;
-            this.lblAst4.Location = new System.Drawing.Point(408, 124);
-            this.lblAst4.Name = "lblAst4";
-            this.lblAst4.Size = new System.Drawing.Size(161, 19);
-            this.lblAst4.TabIndex = 32;
-            this.lblAst4.Text = "astéroide étrange123";
-            this.lblAst4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // pctAst4
-            // 
-            this.pctAst4.BackColor = System.Drawing.Color.Transparent;
-            this.pctAst4.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
-            this.pctAst4.Location = new System.Drawing.Point(462, 60);
-            this.pctAst4.Name = "pctAst4";
-            this.pctAst4.Size = new System.Drawing.Size(52, 61);
-            this.pctAst4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctAst4.TabIndex = 31;
-            this.pctAst4.TabStop = false;
-            // 
-            // pctAst3
-            // 
-            this.pctAst3.BackColor = System.Drawing.Color.Transparent;
-            this.pctAst3.Image = global::Gravity_Learning.Properties.Resources.asteroid1;
-            this.pctAst3.Location = new System.Drawing.Point(113, 225);
-            this.pctAst3.Name = "pctAst3";
-            this.pctAst3.Size = new System.Drawing.Size(52, 61);
-            this.pctAst3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pctAst3.TabIndex = 33;
-            this.pctAst3.TabStop = false;
-            // 
-            // lblAst3
-            // 
-            this.lblAst3.BackColor = System.Drawing.Color.Transparent;
-            this.lblAst3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAst3.ForeColor = System.Drawing.Color.White;
-            this.lblAst3.Location = new System.Drawing.Point(59, 289);
-            this.lblAst3.Name = "lblAst3";
-            this.lblAst3.Size = new System.Drawing.Size(161, 19);
-            this.lblAst3.TabIndex = 34;
-            this.lblAst3.Text = "astéroide étrange123";
-            this.lblAst3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmGravityDactylo
             // 
@@ -359,19 +360,18 @@
             this.Controls.Add(this.cmdPause);
             this.Controls.Add(this.cmdReDemarrer);
             this.Controls.Add(this.grpEspace);
-            this.Controls.Add(this.pctHorizonTerre);
             this.Name = "frmGravityDactylo";
             this.Text = "Gravity Dactylo";
             this.Load += new System.EventHandler(this.FrmGravityDactylo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grpEspace.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctAst1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctAst2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctHorizonTerre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctAst3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
