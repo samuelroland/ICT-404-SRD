@@ -60,7 +60,7 @@ namespace _12_TestEmail
 
                 if (indexate != -1) //ne pas compter si il n'y pas de @:
                 {
-                    if (indexate < longmail)
+                    if (indexate + 1 < longmail)    //correction procédurale. avant c'était if (indexate + 1 < longmail): si le lastchar était @ alors rentrait quand meme alors nbcondtrue était 1 de trop grand. Ce problème ne changeait rien pour le résultat final car la conditions suivante n'étant pas respectée c'était quand meme faux. Erreur détectée avec l'aide par Altin Zili.
                     {
                         nbcondtrue++;
                         txtCharsApres.Text = (longmail - indexate - 1).ToString();
