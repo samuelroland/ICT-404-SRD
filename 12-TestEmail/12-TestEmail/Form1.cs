@@ -24,6 +24,8 @@ namespace _12_TestEmail
         private void CmdVerifier_Click(object sender, EventArgs e)
         {
             int nbcondtrue = 0; //nb de conditions correctes. si ==4 alors l'email est valide.
+            txtEmail.Text= txtEmail.Text.Trim();    //enlever les espaces de début et de fin avec Trim():
+
             if (txtEmail.Text == "")
             {
                 lblEmailAVerif.ForeColor = Color.Red;
@@ -56,24 +58,28 @@ namespace _12_TestEmail
                 {
                     txtCharsAvant.Text = "0";
                 }
-                //doit avoir des chars après:
 
-                if (indexate != -1) //ne pas compter si il n'y pas de @:
-                {
-                    if (indexate + 1 < longmail)    //correction procédurale. avant c'était if (indexate + 1 < longmail): si le lastchar était @ alors rentrait quand meme alors nbcondtrue était 1 de trop grand. Ce problème ne changeait rien pour le résultat final car la conditions suivante n'étant pas respectée c'était quand meme faux. Erreur détectée avec l'aide par Altin Zili.
-                    {
-                        nbcondtrue++;
-                        txtCharsApres.Text = (longmail - indexate - 1).ToString();
-                    }
-                    else
-                    {
-                        txtCharsApres.Text = "0";
-                    }
-                }
-                else
-                {
-                    txtCharsApres.Text = "0";
-                }
+                //CONDITION INUTILE: LA SUIVANTE LA REMPLACE. SI PAS DE CHARS APRES ALORS PAS PLUS DE 4 CHARS APRES !
+                //doit avoir des chars après:
+                //if (indexate != -1) //ne pas compter si il n'y pas de @:
+                //{
+                //    if (indexate + 1 < longmail)    //correction procédurale. avant c'était if (indexate + 1 < longmail): si le lastchar était @ alors rentrait quand meme alors nbcondtrue était 1 de trop grand. Ce problème ne changeait rien pour le résultat final car la conditions suivante n'étant pas respectée c'était quand meme faux. Erreur détectée avec l'aide par Altin Zili.
+                //    {
+                //        nbcondtrue++;
+                //        txtCharsApres.Text = (longmail - indexate - 1).ToString();
+                //    }
+                //    else
+                //    {
+                //        txtCharsApres.Text = "0";
+                //    }
+                //}
+                //else
+                //{
+                //    txtCharsApres.Text = "0";
+                //}
+
+                //Il faut quand même afficher combien il y a de chars après:
+                txtCharsApres.Text = (longmail - indexate - 1).ToString();
 
                 //doit avoir au moins 4 chars après le @. Et doit avoir un point après le @:
                 if (indexate != -1) //ne pas compter si il n'y pas de @:
@@ -91,6 +97,16 @@ namespace _12_TestEmail
                 else
                 {
                     chkPointPresent.Checked = false;
+                }
+
+                //Par contre il faut vérifier si il n'y a pas d'espace:
+                if (txtEmail.Text.IndexOf(" ") == -1)
+                {
+                    nbcondtrue++;
+                }
+                else
+                {
+                    MessageBox.Show("Il y a un espace dans l'email. Il ne sera pas valide...");
                 }
 
                 //Si les ces 4 conditions sont remplies, l'adresse est valide:
