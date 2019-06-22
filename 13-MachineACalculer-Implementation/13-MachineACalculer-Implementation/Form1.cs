@@ -24,6 +24,8 @@ namespace _13_MachineACalculer_Implementation
         }
         float firstnb = 0;
         float secondnb = 0;
+
+        bool sup10=false;   //définit si le label 2 contient un nombre > 10. donc à plusieurs chiffres.
         private void number_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -31,11 +33,29 @@ namespace _13_MachineACalculer_Implementation
             //Selon le numnb:
             if (numnb == true)
             {
-                lblNbEntier1.Text += btn.Text;
+                if (dejapremiercalcul==false)
+                {
+lblNbEntier1.Text += btn.Text;
                 firstnb = float.Parse(lblNbEntier1.Text);
+                }
+                else
+                {   //si on fait des calculs successif.
+                    if (sup10==false)   //si le nb est sup10, en fait on se trouve au moment ou on vient de taper le 3eme nombre. il faut donc vider celui du calcul d'avant.
+                    {
+                        lblNbEntier2.Text = "";
+                        sup10=true;
+                    }
+                    
+                    lblNbEntier1.Text = resultopm.ToString();
+                    lblNbEntier2.Text += btn.Text;
+                    secondnb = float.Parse(lblNbEntier2.Text);
+                    firstnb = float.Parse(lblNbEntier1.Text);
+                }
+                
             }
             else
             {
+               
                 lblNbEntier2.Text += btn.Text;
                 secondnb = float.Parse(lblNbEntier2.Text);
             }
@@ -56,8 +76,8 @@ namespace _13_MachineACalculer_Implementation
         bool dejapremiercalcul = false; //indique si il y a déjà eu un premier calcul 
 
 
-
-
+float result = 0;
+        float resultopm = 0;    //résultat d'une opération multiple.
         private void resultcalcul()
         {
             if (lblNbEntier1.Text=="" || lblNbEntier2.Text=="")
@@ -67,7 +87,7 @@ namespace _13_MachineACalculer_Implementation
             else
             {
 
-                float result = 0;
+                
                 switch (lblOperateurs.Text)
                 {
                     case "+":
@@ -77,7 +97,8 @@ namespace _13_MachineACalculer_Implementation
                         }
                         else
                         {
-                            result += firstnb;
+                            
+                            result = firstnb + secondnb;
                         }
                         break;
                     case "-":
@@ -94,11 +115,13 @@ namespace _13_MachineACalculer_Implementation
                         break;
                     case "/":
                         result = firstnb / secondnb;
+                        resultopm = result;
                         dejapremiercalcul = true;
                         break;
                     case "*":
                         result = firstnb * secondnb;
-                        dejapremiercalcul = false;
+                        resultopm = result;
+                        dejapremiercalcul = true;
                         break;
                     default:
                         break;

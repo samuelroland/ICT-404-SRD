@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.lblMachineACalculerInfo = new System.Windows.Forms.Label();
             this.cmd1 = new System.Windows.Forms.Button();
             this.cmd2 = new System.Windows.Forms.Button();
@@ -47,8 +46,6 @@
             this.lblNbEntier1 = new System.Windows.Forms.Label();
             this.lblNbEntier2 = new System.Windows.Forms.Label();
             this.lblOperateurs = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMachineACalculerInfo
@@ -63,146 +60,176 @@
             // 
             // cmd1
             // 
+            this.cmd1.BackColor = System.Drawing.Color.Black;
+            this.cmd1.ForeColor = System.Drawing.Color.White;
             this.cmd1.Location = new System.Drawing.Point(18, 194);
             this.cmd1.Name = "cmd1";
             this.cmd1.Size = new System.Drawing.Size(43, 36);
             this.cmd1.TabIndex = 3;
             this.cmd1.Text = "1";
-            this.cmd1.UseVisualStyleBackColor = true;
+            this.cmd1.UseVisualStyleBackColor = false;
             this.cmd1.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd2
             // 
+            this.cmd2.BackColor = System.Drawing.Color.Black;
+            this.cmd2.ForeColor = System.Drawing.Color.White;
             this.cmd2.Location = new System.Drawing.Point(69, 194);
             this.cmd2.Name = "cmd2";
             this.cmd2.Size = new System.Drawing.Size(43, 36);
             this.cmd2.TabIndex = 4;
             this.cmd2.Text = "2";
-            this.cmd2.UseVisualStyleBackColor = true;
+            this.cmd2.UseVisualStyleBackColor = false;
             this.cmd2.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd3
             // 
+            this.cmd3.BackColor = System.Drawing.Color.Black;
+            this.cmd3.ForeColor = System.Drawing.Color.White;
             this.cmd3.Location = new System.Drawing.Point(118, 194);
             this.cmd3.Name = "cmd3";
             this.cmd3.Size = new System.Drawing.Size(43, 36);
             this.cmd3.TabIndex = 5;
             this.cmd3.Text = "3";
-            this.cmd3.UseVisualStyleBackColor = true;
+            this.cmd3.UseVisualStyleBackColor = false;
             this.cmd3.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd4
             // 
+            this.cmd4.BackColor = System.Drawing.Color.Black;
+            this.cmd4.ForeColor = System.Drawing.Color.White;
             this.cmd4.Location = new System.Drawing.Point(18, 236);
             this.cmd4.Name = "cmd4";
             this.cmd4.Size = new System.Drawing.Size(43, 36);
             this.cmd4.TabIndex = 6;
             this.cmd4.Text = "4";
-            this.cmd4.UseVisualStyleBackColor = true;
+            this.cmd4.UseVisualStyleBackColor = false;
             this.cmd4.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd5
             // 
+            this.cmd5.BackColor = System.Drawing.Color.Black;
+            this.cmd5.ForeColor = System.Drawing.Color.White;
             this.cmd5.Location = new System.Drawing.Point(69, 236);
             this.cmd5.Name = "cmd5";
             this.cmd5.Size = new System.Drawing.Size(43, 36);
             this.cmd5.TabIndex = 7;
             this.cmd5.Text = "5";
-            this.cmd5.UseVisualStyleBackColor = true;
+            this.cmd5.UseVisualStyleBackColor = false;
             this.cmd5.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd6
             // 
+            this.cmd6.BackColor = System.Drawing.Color.Black;
+            this.cmd6.ForeColor = System.Drawing.Color.White;
             this.cmd6.Location = new System.Drawing.Point(118, 236);
             this.cmd6.Name = "cmd6";
             this.cmd6.Size = new System.Drawing.Size(43, 36);
             this.cmd6.TabIndex = 8;
             this.cmd6.Text = "6";
-            this.cmd6.UseVisualStyleBackColor = true;
+            this.cmd6.UseVisualStyleBackColor = false;
             this.cmd6.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd7
             // 
+            this.cmd7.BackColor = System.Drawing.Color.Black;
+            this.cmd7.ForeColor = System.Drawing.Color.White;
             this.cmd7.Location = new System.Drawing.Point(18, 278);
             this.cmd7.Name = "cmd7";
             this.cmd7.Size = new System.Drawing.Size(43, 36);
             this.cmd7.TabIndex = 9;
             this.cmd7.Text = "7";
-            this.cmd7.UseVisualStyleBackColor = true;
+            this.cmd7.UseVisualStyleBackColor = false;
             this.cmd7.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd8
             // 
+            this.cmd8.BackColor = System.Drawing.Color.Black;
+            this.cmd8.ForeColor = System.Drawing.Color.White;
             this.cmd8.Location = new System.Drawing.Point(69, 278);
             this.cmd8.Name = "cmd8";
             this.cmd8.Size = new System.Drawing.Size(43, 36);
             this.cmd8.TabIndex = 10;
             this.cmd8.Text = "8";
-            this.cmd8.UseVisualStyleBackColor = true;
+            this.cmd8.UseVisualStyleBackColor = false;
             this.cmd8.Click += new System.EventHandler(this.number_Click);
             // 
             // cmd9
             // 
+            this.cmd9.BackColor = System.Drawing.Color.Black;
+            this.cmd9.ForeColor = System.Drawing.Color.White;
             this.cmd9.Location = new System.Drawing.Point(118, 278);
             this.cmd9.Name = "cmd9";
             this.cmd9.Size = new System.Drawing.Size(43, 36);
             this.cmd9.TabIndex = 11;
             this.cmd9.Text = "9";
-            this.cmd9.UseVisualStyleBackColor = true;
+            this.cmd9.UseVisualStyleBackColor = false;
             this.cmd9.Click += new System.EventHandler(this.number_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.Black;
+            this.button9.ForeColor = System.Drawing.Color.White;
             this.button9.Location = new System.Drawing.Point(221, 223);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(43, 36);
             this.button9.TabIndex = 12;
             this.button9.Text = "+";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.Operateurs_Click);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.Black;
+            this.button10.ForeColor = System.Drawing.Color.White;
             this.button10.Location = new System.Drawing.Point(281, 223);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(43, 36);
             this.button10.TabIndex = 13;
             this.button10.Text = "-";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.Operateurs_Click);
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.Color.Black;
+            this.button11.ForeColor = System.Drawing.Color.White;
             this.button11.Location = new System.Drawing.Point(221, 278);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(43, 36);
             this.button11.TabIndex = 14;
             this.button11.Text = "/";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.Operateurs_Click);
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.Color.Black;
+            this.button12.ForeColor = System.Drawing.Color.White;
             this.button12.Location = new System.Drawing.Point(281, 278);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(43, 36);
             this.button12.TabIndex = 15;
             this.button12.Text = "*";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.Operateurs_Click);
             // 
             // lblResult
             // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(218, 160);
+            this.lblResult.BackColor = System.Drawing.Color.Aqua;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.Color.Yellow;
+            this.lblResult.Location = new System.Drawing.Point(216, 101);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(82, 13);
+            this.lblResult.Size = new System.Drawing.Size(91, 55);
             this.lblResult.TabIndex = 16;
             this.lblResult.Text = "Résultat (00,00)";
             // 
             // lblNbEntier1
             // 
             this.lblNbEntier1.AutoSize = true;
+            this.lblNbEntier1.BackColor = System.Drawing.Color.Black;
+            this.lblNbEntier1.ForeColor = System.Drawing.Color.White;
             this.lblNbEntier1.Location = new System.Drawing.Point(97, 70);
             this.lblNbEntier1.Name = "lblNbEntier1";
             this.lblNbEntier1.Size = new System.Drawing.Size(82, 13);
@@ -212,6 +239,8 @@
             // lblNbEntier2
             // 
             this.lblNbEntier2.AutoSize = true;
+            this.lblNbEntier2.BackColor = System.Drawing.Color.Black;
+            this.lblNbEntier2.ForeColor = System.Drawing.Color.White;
             this.lblNbEntier2.Location = new System.Drawing.Point(97, 101);
             this.lblNbEntier2.Name = "lblNbEntier2";
             this.lblNbEntier2.Size = new System.Drawing.Size(82, 13);
@@ -221,15 +250,11 @@
             // lblOperateurs
             // 
             this.lblOperateurs.AutoSize = true;
-            this.lblOperateurs.Location = new System.Drawing.Point(97, 88);
+            this.lblOperateurs.Location = new System.Drawing.Point(103, 86);
             this.lblOperateurs.Name = "lblOperateurs";
             this.lblOperateurs.Size = new System.Drawing.Size(13, 13);
             this.lblOperateurs.TabIndex = 19;
             this.lblOperateurs.Text = "+";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // frmMachineACalculer
             // 
@@ -257,7 +282,6 @@
             this.Name = "frmMachineACalculer";
             this.Text = "Machine à calculer";
             this.Load += new System.EventHandler(this.frmMachineACalculer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -282,7 +306,6 @@
         private System.Windows.Forms.Label lblNbEntier1;
         private System.Windows.Forms.Label lblNbEntier2;
         private System.Windows.Forms.Label lblOperateurs;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
