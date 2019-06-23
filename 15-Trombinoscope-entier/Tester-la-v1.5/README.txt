@@ -1,0 +1,2 @@
+Dossier pour tester la version 1.5. du Trombinoscope Dynamique.
+Les profils sont écrit dans le dossier Profils. Pour tester à l'interne du cpnv, supprimer les profils. (Ce sera ProfilSender qui créera les fichiers) Pour tester à la maison, laissez les comme exemples et modifiez les à la main.
