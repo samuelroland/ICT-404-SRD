@@ -28,47 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNomPersonne = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblPersonne1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.tmrActualiser = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblMsg = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblIcon = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblNomPersonne
+            // tmrActualiser
             // 
-            this.lblNomPersonne.BackColor = System.Drawing.Color.Green;
-            this.lblNomPersonne.Location = new System.Drawing.Point(23, 117);
-            this.lblNomPersonne.Name = "lblNomPersonne";
-            this.lblNomPersonne.Size = new System.Drawing.Size(84, 13);
-            this.lblNomPersonne.TabIndex = 0;
-            this.lblNomPersonne.Text = "Prénom";
-            this.lblNomPersonne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tmrActualiser.Enabled = true;
+            this.tmrActualiser.Interval = 2000;
+            this.tmrActualiser.Tick += new System.EventHandler(this.TmrActualiser_Tick);
             // 
-            // label2
+            // button1
             // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(20, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 64);
-            this.label2.TabIndex = 2;
+            this.button1.Location = new System.Drawing.Point(362, 710);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // lblPersonne1
+            // lblMsg
             // 
-            this.lblPersonne1.BackColor = System.Drawing.Color.Green;
-            this.lblPersonne1.Image = global::Trombinoscope.Properties.Resources.content;
-            this.lblPersonne1.Location = new System.Drawing.Point(20, 20);
-            this.lblPersonne1.Name = "lblPersonne1";
-            this.lblPersonne1.Size = new System.Drawing.Size(87, 110);
-            this.lblPersonne1.TabIndex = 1;
-            this.lblPersonne1.Click += new System.EventHandler(this.label1_Click);
+            this.lblMsg.BackColor = System.Drawing.Color.White;
+            this.lblMsg.Location = new System.Drawing.Point(453, 673);
+            this.lblMsg.Name = "lblMsg";
+            this.lblMsg.Size = new System.Drawing.Size(90, 60);
+            this.lblMsg.TabIndex = 7;
+            this.lblMsg.Text = "msg à remplir";
+            // 
+            // lblNom
+            // 
+            this.lblNom.BackColor = System.Drawing.Color.Green;
+            this.lblNom.Location = new System.Drawing.Point(453, 660);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(90, 13);
+            this.lblNom.TabIndex = 5;
+            this.lblNom.Text = "Prénom !";
+            this.lblNom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblIcon
+            // 
+            this.lblIcon.BackColor = System.Drawing.Color.Green;
+            this.lblIcon.Image = global::Trombinoscope.Properties.Resources.content;
+            this.lblIcon.Location = new System.Drawing.Point(453, 563);
+            this.lblIcon.Name = "lblIcon";
+            this.lblIcon.Size = new System.Drawing.Size(90, 110);
+            this.lblIcon.TabIndex = 6;
             // 
             // frmTrombinoscope
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblNomPersonne);
-            this.Controls.Add(this.lblPersonne1);
+            this.ClientSize = new System.Drawing.Size(554, 741);
+            this.Controls.Add(this.lblMsg);
+            this.Controls.Add(this.lblNom);
+            this.Controls.Add(this.lblIcon);
+            this.Controls.Add(this.button1);
             this.Name = "frmTrombinoscope";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "Tous";
@@ -78,10 +98,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblNomPersonne;
-        private System.Windows.Forms.Label lblPersonne1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer tmrActualiser;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblMsg;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblIcon;
     }
 }
 
