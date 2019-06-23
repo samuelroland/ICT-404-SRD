@@ -30,27 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tmrActualiser = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblIcon = new System.Windows.Forms.Label();
+            this.lblNomsLabels = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tmrActualiser
             // 
-            this.tmrActualiser.Enabled = true;
-            this.tmrActualiser.Interval = 2000;
+            this.tmrActualiser.Interval = 1000;
             this.tmrActualiser.Tick += new System.EventHandler(this.TmrActualiser_Tick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(362, 710);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // lblMsg
             // 
@@ -80,15 +69,23 @@
             this.lblIcon.Size = new System.Drawing.Size(90, 110);
             this.lblIcon.TabIndex = 6;
             // 
+            // lblNomsLabels
+            // 
+            this.lblNomsLabels.Location = new System.Drawing.Point(2, 620);
+            this.lblNomsLabels.Name = "lblNomsLabels";
+            this.lblNomsLabels.Size = new System.Drawing.Size(435, 82);
+            this.lblNomsLabels.TabIndex = 8;
+            this.lblNomsLabels.Text = "Noms Labels sur Form:";
+            // 
             // frmTrombinoscope
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 741);
+            this.ClientSize = new System.Drawing.Size(564, 741);
+            this.Controls.Add(this.lblNomsLabels);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.lblIcon);
-            this.Controls.Add(this.button1);
             this.Name = "frmTrombinoscope";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.Text = "Tous";
@@ -99,10 +96,10 @@
 
         #endregion
         private System.Windows.Forms.Timer tmrActualiser;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblMsg;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblIcon;
+        private System.Windows.Forms.Label lblNomsLabels;
     }
 }
 

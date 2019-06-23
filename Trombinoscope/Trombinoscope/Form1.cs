@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Programme: Trombinoscope dynamique, exo de Moodle. Programme d'envoi des données ProfilSender dans le même dossier racine.
+//Auteur: Samuel Roland
+//Date: codé sur le 22 (tte après-midi) et 23 juin 2019 (matin). Environ 6-7 heures de travail pour ce programme (c'est à dire sans compter ProfilSender).
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +18,7 @@ namespace Trombinoscope
     public partial class frmTrombinoscope : Form
     {
         string username = Environment.UserName;
+        
         public frmTrombinoscope()
         {
             InitializeComponent();
@@ -26,7 +31,11 @@ namespace Trombinoscope
 
         private void frmTrombinoscope_Load(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("bienvenue sur le trombinoscope dynamique. Pour info: les fichiers de profils sont stockés dans le dossier profils. Les deux programmes: Trombinoscope.exe et ProfilSender.exe doivent rester à cette emplacement!");
+            tmrActualiser.Enabled=true;
+            //Prendre le prénom de l'utilisateur:
+            username= username.Substring(0, username.IndexOf("."));
+            this.Text = "Tous vu par " + username;
         }
         string ligne = null;
         StreamReader fluxInfos = null;
@@ -34,11 +43,11 @@ namespace Trombinoscope
         string presenceencours = "cas";
         int humeurencours = 0;   //Humeur du fichier en cours de traitement.
         string msgencours = "msg en cours ";
-        string[] fichiersconnus = { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" };    //contient les noms des fichiers connus.
+        string[] fichiersconnus = new string[50];    //contient les noms des fichiers connus.
         int nbfichiersaffiche = 0;  //nombre de fichiers affichés, donc aussi nombre de fichiers connus dans le tableau fichiersconnus.
         int nbpersononligne = 0;  //nombre de personnes affichée sur la ligne
         int nbligneaffiche = 0; //nombre de lignes affichées entière
-
+        
         private bool estdejaaffiche(string filename)
         {
             //Cette fonction va répondre si le fichier est déjà connu, donc que la personne est déjà affiché.
@@ -70,29 +79,21 @@ namespace Trombinoscope
             }
             //PositionX et PositionY à calculer selon le nbdefichiersaffiche
             positionX = nbpersononligne * (margin + widthpersonne) + margin;
-            positionY = margin + nbligneaffiche*(margin+heightpersonne);
+            positionY = margin + nbligneaffiche * (margin + heightpersonne);
 
         }
 
-
-
+        List<Label> labelscollection = new List<Label>();
         private void lireactuaff()
         {   //fonction qui lit actualise les données et les affiche.
 
-
-            List<Label> labelscollection;
-            labelscollection = new List<Label>();
-            labelscollection.Add(lblIcon);
-            labelscollection.Add(lblMsg);
-            labelscollection.Add(lblNom);
-
             string userinrun = "personne";  //nom du user en cours de traitement
-
 
             foreach (var file in folder.GetFiles()) //scan de tous les fichiers
             {
                 using (fluxInfos = new StreamReader("Profils\\" + file.Name))
                 {
+                    userinrun = file.Name.Substring(0, file.Name.IndexOf("."));
                     //si le tableau de fichiers connus ne contient pas le nom de fichier en cours.
                     if (estdejaaffiche(file.Name) == false)
                     {
@@ -106,43 +107,45 @@ namespace Trombinoscope
                         // 
                         this.lblMsg.BackColor = System.Drawing.Color.White;
                         this.lblMsg.Location = new System.Drawing.Point(20, 130);
-                        this.lblMsg.Name = "lblMsg";
-                        this.lblMsg.Size = new System.Drawing.Size(90, 64);
+                        this.lblMsg.Name = "lblMsg" + userinrun;
+                        this.lblMsg.Size = new System.Drawing.Size(widthpersonne, 64);
                         this.lblMsg.TabIndex = 7;
                         this.lblMsg.Text = "msg à remplir";
+                        lblNomsLabels.Text += "  " + lblMsg.Name;
                         // 
                         // lblNom
                         // 
                         this.lblNom.BackColor = System.Drawing.Color.Green;
                         this.lblNom.Location = new System.Drawing.Point(20, 117);
-                        this.lblNom.Name = "lblNom";
-                        this.lblNom.Size = new System.Drawing.Size(90, 13);
+                        this.lblNom.Name = "lblNom" + userinrun;
+                        this.lblNom.Size = new System.Drawing.Size(widthpersonne, 13);
                         this.lblNom.TabIndex = 5;
                         this.lblNom.Text = "Prénom !";
                         this.lblNom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                        lblNomsLabels.Text += "  " + lblNom.Name;
                         // 
                         // lblIcon
                         // 
                         this.lblIcon.BackColor = System.Drawing.Color.Green;
                         this.lblIcon.Image = global::Trombinoscope.Properties.Resources.content;
                         this.lblIcon.Location = new System.Drawing.Point(20, 20);
-                        this.lblIcon.Name = "lblIcon";
-                        this.lblIcon.Size = new System.Drawing.Size(90, 110);
+                        this.lblIcon.Name = "lblIcon" + userinrun;
+                        this.lblIcon.Size = new System.Drawing.Size(widthpersonne, 110);
                         this.lblIcon.TabIndex = 6;
+                        lblNomsLabels.Text += "  " + lblIcon.Name;
 
-
-                        //WIP POSITION SELON NBfichiersaffiche. actuellement les éléments se superposent.
+                        //Calcul des positions de l'icone de la personne et déductions des 2 autres labels.
                         positionlabelscalcul();
                         //On la positionne sur le formulaire:
-                        this.lblMsg.Location = new Point(positionX, positionY+110);
-                        this.lblNom.Location = new Point(positionX, positionY+97);
+                        this.lblMsg.Location = new Point(positionX, positionY + 110);
+                        this.lblNom.Location = new Point(positionX, positionY + 97);
                         this.lblIcon.Location = new Point(positionX, positionY);
 
                         //On ajoute les labels de la personne à la collection "labelscollection"
 
-                        labelscollection.Add(this.lblMsg);
-                        labelscollection.Add(this.lblNom);
-                        labelscollection.Add(this.lblIcon);
+                        labelscollection.Add(lblMsg);
+                        labelscollection.Add(lblNom);
+                        labelscollection.Add(lblIcon);
                         //On les ajoute au formulaire:
                         Controls.Add(lblMsg);
                         Controls.Add(lblNom);
@@ -157,7 +160,7 @@ namespace Trombinoscope
                         nbfichiersaffiche++;
                     }
                     //Puis on le charge ou recharge le fichier (aucune différence dans la procédure):
-                    userinrun = file.Name.Substring(0, file.Name.IndexOf("."));
+
                     ligne = fluxInfos.ReadLine();
                     presenceencours = ligne;
                     ligne = fluxInfos.ReadLine();
@@ -171,56 +174,60 @@ namespace Trombinoscope
 
                 foreach (Label labelinrun in labelscollection) //scan de tous les labels qui se trouvent dans la collection "labelscollection".
                 {
-                    if (labelinrun.Name.Contains("lblMsg" + userinrun))
-                    {
-                        labelinrun.Text = msgencours;   //le msg
-                    }
 
-                    if (labelinrun.Name.Contains("lblNom" + userinrun))
+                    if (labelinrun.Name.Contains(userinrun))
                     {
-                        labelinrun.Text = userinrun;   //le prénom de la personne, avec le nom de fichier.
+                        if (labelinrun.Name.Contains("lblMsg"))
+                        {
+                            labelinrun.Text = msgencours;   //le msg
+                        }
 
-                        if (presenceencours == "1")
+                        if (labelinrun.Name.Contains("lblNom"))
                         {
-                            labelinrun.BackColor = Color.Green;
-                        }
-                        else
-                        {
-                            labelinrun.BackColor = Color.Red;
-                        }
-                    }
+                            labelinrun.Text = userinrun;   //le prénom de la personne, avec le nom de fichier.
 
-                    if (labelinrun.Name.Contains("lblIcon" + userinrun))
-                    {
-                        switch (humeurencours)  //L'humeur va de 1 à 5.
-                        {
-                            case 1:
-                                labelinrun.Image = Properties.Resources.content;
-                                break;
-                            case 2:
-                                labelinrun.Image = Properties.Resources.cool;
-                                break;
-                            case 3:
-                                labelinrun.Image = Properties.Resources.nerveux;
-                                break;
-                            case 4:
-                                labelinrun.Image = Properties.Resources.pascontent;
-                                break;
-                            case 5:
-                                labelinrun.Image = Properties.Resources.angelique;
-                                break;
-                            default:
-                                MessageBox.Show("Humeur corrompue... avez vous bidouillé le fichier ?");
-                                break;
+                            if (presenceencours == "1")
+                            {
+                                labelinrun.BackColor = Color.Green;
+                            }
+                            else
+                            {
+                                labelinrun.BackColor = Color.Red;
+                            }
                         }
-                        //la présence:
-                        if (presenceencours == "0")
+
+                        if (labelinrun.Name.Contains("lblIcon"))
                         {
-                            labelinrun.BackColor = Color.Red;
-                        }
-                        else
-                        {
-                            labelinrun.BackColor = Color.Green;
+                            switch (humeurencours)  //L'humeur va de 1 à 5.
+                            {
+                                case 1:
+                                    labelinrun.Image = Properties.Resources.content;
+                                    break;
+                                case 2:
+                                    labelinrun.Image = Properties.Resources.cool;
+                                    break;
+                                case 3:
+                                    labelinrun.Image = Properties.Resources.nerveux;
+                                    break;
+                                case 4:
+                                    labelinrun.Image = Properties.Resources.pascontent;
+                                    break;
+                                case 5:
+                                    labelinrun.Image = Properties.Resources.angelique;
+                                    break;
+                                default:
+                                    MessageBox.Show("Humeur corrompue... avez vous bidouillé le fichier ?");
+                                    break;
+                            }
+                            //la présence:
+                            if (presenceencours == "0")
+                            {
+                                labelinrun.BackColor = Color.Red;
+                            }
+                            else
+                            {
+                                labelinrun.BackColor = Color.Green;
+                            }
                         }
                     }
                 }
