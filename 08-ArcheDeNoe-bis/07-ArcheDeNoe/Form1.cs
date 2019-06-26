@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace _07_ArcheDeNoe
 {
@@ -49,6 +50,7 @@ namespace _07_ArcheDeNoe
                 cmdMettreABord.Enabled = false;
 
             }
+            sauverpartie();
         }
 
         private void cmdMettreATerre_Click(object sender, EventArgs e)
@@ -71,6 +73,29 @@ namespace _07_ArcheDeNoe
             {
                 cmdMettreATerre.Enabled = false;
             }
+            //Déclencher l'écriture dans le fichier pour sauver les animaux à bord.
+            sauverpartie();
+        }
+        void sauverpartie()
+        {
+            StreamWriter ecrire = null;
+            try
+            {
+                using (ecrire = new StreamWriter("applicationenpause.txt"))
+                {
+                    //Ecrire le commentaire:
+                    ecrire.WriteLine("//Listes des Items à bord lors de la dernière fermeture du formulaire.");
+                    foreach (Object Itemsabord in lstABord.Items)
+                    {
+
+                        ecrire.WriteLine(Itemsabord);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void frmArcheDeNoe_Load(object sender, EventArgs e)
@@ -79,6 +104,32 @@ namespace _07_ArcheDeNoe
             lstABord.Items.Clear();
             //Désactiver le button MettreATerre:
             cmdMettreATerre.Enabled = false;
+            //Charger le fichier applicationenpause.txt pour déplacer les items qui sont à bord:
+            StreamReader lecteurfichier = null;
+            string iteminrun = "salut";
+            try
+            {
+                using (lecteurfichier = new StreamReader("applicationenpause.txt"))
+                {
+
+                    while (iteminrun != "")
+                    {
+                        iteminrun = lecteurfichier.ReadLine();
+                        if (lstATerre.Items.Contains(iteminrun))
+                        {
+                            lstABord.Items.Add(iteminrun);
+                            lstATerre.Items.Remove(iteminrun);
+                        }
+                    }
+                }
+                MessageBox.Show(iteminrun);
+
+            }
+            catch (Exception)
+            {
+
+            }
+
         }
 
         private void lstABord_DoubleClick(object sender, EventArgs e)
