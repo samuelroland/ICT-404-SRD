@@ -64,23 +64,23 @@ namespace _03_Deductions
                 //charger que si rempli
                 if (textBoxCoefficient.Text != "")
                 {
-                    coefficientfamilial = float.Parse(textBoxCoefficient.Text);
+                    float.TryParse(textBoxCoefficient.Text, out coefficientfamilial);
                 }
                 if (textBoxRevenueAnnuel.Text != "")
                 {
-                    revenubrut = int.Parse(textBoxRevenueAnnuel.Text);
+                    int.TryParse(textBoxRevenueAnnuel.Text, out revenubrut);
                 }
                 if (textBoxDeductionJeune.Text != "")
                 {
-                    deductionjeune = int.Parse(textBoxDeductionJeune.Text);
+                    int.TryParse(textBoxDeductionJeune.Text, out deductionjeune);
                 }
                 if (textBoxDeductionsTransport.Text != "")
                 {
-                    deductiontransport = int.Parse(textBoxDeductionsTransport.Text);
+                    int.TryParse(textBoxDeductionsTransport.Text, out deductiontransport);
                 }
                 if (textBoxRabais.Text != "")
                 {
-                    rabais = float.Parse(textBoxRabais.Text);
+                    float.TryParse(textBoxRabais.Text, out rabais);
                 }
 
 
@@ -123,7 +123,6 @@ namespace _03_Deductions
                     checkBoxDeductionTransport.Enabled = true;
                 }
 
-
             }
             //verification du domaine de valeur:
 
@@ -143,7 +142,7 @@ namespace _03_Deductions
             //Remettre visible le label de résultat:
             lblRevenueImposable.Visible = true;
         }
-
+        
         //Si le texte change dans une des textBox, il faut recalculer:
         private void textBoxRevenueAnnuel_TextChanged(object sender, EventArgs e)
         {
@@ -187,7 +186,8 @@ namespace _03_Deductions
 
         private void textBoxRevenueAnnuel_Validated(object sender, EventArgs e) //Validated = à quand on quitte le champ en question.
         {
-            int revenubrut = int.Parse(textBoxRevenueAnnuel.Text);
+            int revenubrut;
+            int.TryParse(textBoxRevenueAnnuel.Text, out revenubrut);
 
             if (textBoxRevenueAnnuel.Text != "")
             {
