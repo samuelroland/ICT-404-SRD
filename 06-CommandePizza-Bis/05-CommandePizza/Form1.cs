@@ -1,6 +1,6 @@
-﻿//Projet: Exo 05-CommandePizza de Moodle.
+﻿//Projet: Exo 06-CommandePizza-Bis de Moodle. Partie BIS attention!!!!
 //Samuel Roland
-//mai 2019
+//juin 2019
 
 
 using System;
