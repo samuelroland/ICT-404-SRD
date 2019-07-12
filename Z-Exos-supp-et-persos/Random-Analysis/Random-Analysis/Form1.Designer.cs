@@ -28,64 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRandomAnalysis));
-            this.tkbNum = new System.Windows.Forms.TrackBar();
             this.grpExplication = new System.Windows.Forms.GroupBox();
-            this.lblExplication = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.tkbNum)).BeginInit();
+            this.txtMaxNbFois = new System.Windows.Forms.TextBox();
+            this.cmdSave = new System.Windows.Forms.Button();
+            this.cmdLancer = new System.Windows.Forms.Button();
+            this.lblExplication = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblNb14 = new System.Windows.Forms.Label();
+            this.tmrRandomGenerator = new System.Windows.Forms.Timer(this.components);
+            this.lblDifferenceMax = new System.Windows.Forms.Label();
+            this.txtRandomResult = new System.Windows.Forms.TextBox();
+            this.tmrEcriture = new System.Windows.Forms.Timer(this.components);
             this.grpExplication.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tkbNum
-            // 
-            this.tkbNum.AutoSize = false;
-            this.tkbNum.LargeChange = 1;
-            this.tkbNum.Location = new System.Drawing.Point(34, 81);
-            this.tkbNum.Maximum = 100;
-            this.tkbNum.Name = "tkbNum";
-            this.tkbNum.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tkbNum.Size = new System.Drawing.Size(10, 306);
-            this.tkbNum.SmallChange = 5;
-            this.tkbNum.TabIndex = 3;
             // 
             // grpExplication
             // 
+            this.grpExplication.Controls.Add(this.label1);
+            this.grpExplication.Controls.Add(this.txtMaxNbFois);
+            this.grpExplication.Controls.Add(this.cmdSave);
+            this.grpExplication.Controls.Add(this.cmdLancer);
             this.grpExplication.Controls.Add(this.lblExplication);
             this.grpExplication.Location = new System.Drawing.Point(12, 12);
             this.grpExplication.Name = "grpExplication";
-            this.grpExplication.Size = new System.Drawing.Size(1600, 63);
+            this.grpExplication.Size = new System.Drawing.Size(1100, 63);
             this.grpExplication.TabIndex = 5;
             this.grpExplication.TabStop = false;
             this.grpExplication.Text = "Explication du programme";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(685, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Nb max de fois tiré:";
+            // 
+            // txtMaxNbFois
+            // 
+            this.txtMaxNbFois.Location = new System.Drawing.Point(688, 35);
+            this.txtMaxNbFois.Name = "txtMaxNbFois";
+            this.txtMaxNbFois.Size = new System.Drawing.Size(100, 20);
+            this.txtMaxNbFois.TabIndex = 3;
+            // 
+            // cmdSave
+            // 
+            this.cmdSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSave.Location = new System.Drawing.Point(913, 13);
+            this.cmdSave.Name = "cmdSave";
+            this.cmdSave.Size = new System.Drawing.Size(181, 42);
+            this.cmdSave.TabIndex = 2;
+            this.cmdSave.Text = "Sauver les résultats";
+            this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.CmdSave_Click);
+            // 
+            // cmdLancer
+            // 
+            this.cmdLancer.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.cmdLancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdLancer.Location = new System.Drawing.Point(808, 13);
+            this.cmdLancer.Name = "cmdLancer";
+            this.cmdLancer.Size = new System.Drawing.Size(99, 42);
+            this.cmdLancer.TabIndex = 1;
+            this.cmdLancer.Text = "Lancer";
+            this.cmdLancer.UseVisualStyleBackColor = false;
+            this.cmdLancer.Click += new System.EventHandler(this.CmdLancer_Click);
             // 
             // lblExplication
             // 
             this.lblExplication.AutoSize = true;
             this.lblExplication.Location = new System.Drawing.Point(6, 16);
             this.lblExplication.Name = "lblExplication";
-            this.lblExplication.Size = new System.Drawing.Size(625, 26);
+            this.lblExplication.Size = new System.Drawing.Size(676, 26);
             this.lblExplication.TabIndex = 0;
             this.lblExplication.Text = resources.GetString("lblExplication.Text");
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.AutoSize = false;
-            this.trackBar1.LargeChange = 1;
-            this.trackBar1.Location = new System.Drawing.Point(55, 81);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(10, 306);
-            this.trackBar1.SmallChange = 5;
-            this.trackBar1.TabIndex = 6;
-            this.trackBar1.Value = 50;
             // 
             // label5
             // 
@@ -96,78 +116,82 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Numéros et nombres de fois tirés.";
             // 
-            // label1
+            // lblNb14
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(50, 413);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 15);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "14";
+            this.lblNb14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblNb14.Location = new System.Drawing.Point(29, 458);
+            this.lblNb14.Name = "lblNb14";
+            this.lblNb14.Size = new System.Drawing.Size(22, 15);
+            this.lblNb14.TabIndex = 8;
+            this.lblNb14.Text = "3";
+            this.lblNb14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // tmrRandomGenerator
             // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Location = new System.Drawing.Point(29, 413);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(22, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "14";
+            this.tmrRandomGenerator.Interval = 1;
+            this.tmrRandomGenerator.Tick += new System.EventHandler(this.TmrRandomGenerator_Tick);
             // 
-            // label4
+            // lblDifferenceMax
             // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Location = new System.Drawing.Point(50, 437);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "14";
+            this.lblDifferenceMax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDifferenceMax.Location = new System.Drawing.Point(68, 458);
+            this.lblDifferenceMax.Name = "lblDifferenceMax";
+            this.lblDifferenceMax.Size = new System.Drawing.Size(297, 15);
+            this.lblDifferenceMax.TabIndex = 9;
+            this.lblDifferenceMax.Text = "Différence: 8";
+            this.lblDifferenceMax.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // txtRandomResult
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Location = new System.Drawing.Point(29, 437);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "14";
+            this.txtRandomResult.Location = new System.Drawing.Point(12, 494);
+            this.txtRandomResult.Multiline = true;
+            this.txtRandomResult.Name = "txtRandomResult";
+            this.txtRandomResult.ReadOnly = true;
+            this.txtRandomResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtRandomResult.Size = new System.Drawing.Size(1118, 223);
+            this.txtRandomResult.TabIndex = 11;
+            this.txtRandomResult.Text = "Randoms: ";
+            this.txtRandomResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // tmrEcriture
+            // 
+            this.tmrEcriture.Interval = 10000;
+            this.tmrEcriture.Tick += new System.EventHandler(this.TmrEcriture_Tick);
             // 
             // frmRandomAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 482);
-            this.Controls.Add(this.label2);
+            this.ClientSize = new System.Drawing.Size(1142, 742);
+            this.Controls.Add(this.txtRandomResult);
+            this.Controls.Add(this.lblDifferenceMax);
+            this.Controls.Add(this.lblNb14);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.grpExplication);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tkbNum);
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
             this.Name = "frmRandomAnalysis";
             this.Text = "Analyse de nombre aléatoires";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.tkbNum)).EndInit();
             this.grpExplication.ResumeLayout(false);
             this.grpExplication.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TrackBar tkbNum;
         private System.Windows.Forms.GroupBox grpExplication;
         private System.Windows.Forms.Label lblExplication;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNb14;
+        private System.Windows.Forms.Button cmdLancer;
+        private System.Windows.Forms.Timer tmrRandomGenerator;
+        private System.Windows.Forms.Label lblDifferenceMax;
+        private System.Windows.Forms.TextBox txtRandomResult;
+        private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtMaxNbFois;
+        private System.Windows.Forms.Timer tmrEcriture;
     }
 }
 
