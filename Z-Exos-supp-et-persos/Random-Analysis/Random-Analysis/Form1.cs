@@ -21,7 +21,7 @@ namespace Random_Analysis
         const int nbmax = 50;//nombre max généré random.
         const int esptkb = 10;//espace en pixel entre les trackbar
         const int margebord = 29;
-        const int margemilieutkb = 5;  //marge pour avoir la tkb au-dessus du label lblNum. 
+        const int margemilieutkb = 11;  //marge pour avoir la tkb au-dessus du label lblNum. 
         const int yfortkb = 81;
 
         const int xfornumnb = 29;   //pos x de base en horizontal pour lblNum et lblNb
@@ -29,7 +29,7 @@ namespace Random_Analysis
         const int yfornum = 413;   //pos y de base en horizontal pour lblNum
         const int yfornb = 437;   //idem pour lblNb
 
-        const int xtaillenumnb = 22;  //taille en x des objets lblNum et lblNb
+        const int xtaillenumnb = 33;  //taille en x des objets lblNum et lblNb
         const int ytaillenumnb = 15;  //taille en y des objets lblNum et lblNb
         const int xtailletkb = 10;  //taille en x de tkb
 
@@ -92,6 +92,7 @@ namespace Random_Analysis
                     lblNb.Name = "lblNb" + rand;
                     lblNb.Size = new Size(xtaillenumnb, ytaillenumnb);
                     lblNb.Text = "1";
+                    lblNb.TextAlign = ContentAlignment.MiddleRight;
                     // 
                     // lblNum
                     // 
@@ -184,7 +185,7 @@ namespace Random_Analysis
         private void TmrRandomGenerator_Tick(object sender, EventArgs e)
         {
             //lancer la génération:
-            generer(maxdefois);
+            generer(30);
 
             //Extension: La plus grande différence (entre le point le plus haut et le point le plus bas) des tkb actuellement affichées:
             int nbplushaut = 0;
@@ -210,12 +211,14 @@ namespace Random_Analysis
             {
                 if (inrun == false)
                 {
+                    tmrEcriture.Enabled = true;
                     tmrRandomGenerator.Enabled = true;
                     cmdLancer.Text = "Pause...";
                     inrun = true;
                 }
                 else
                 {
+                    tmrEcriture.Enabled = false;
                     tmrRandomGenerator.Enabled = false;
                     cmdLancer.Text = "Relancer !";
                     inrun = false;
@@ -232,22 +235,27 @@ namespace Random_Analysis
 
 
         }
-
-        private void CmdSave_Click(object sender, EventArgs e)
+        int nbfoiswritten = 0;
+        private void saveresults()
         {
-            int numerolabel = 1;
+int numerolabel = 1;
             StreamWriter ecrivain = null;
             try
             {
-                using (ecrivain = new StreamWriter("resultats.csv"))
+                using (ecrivain = new StreamWriter("resultats_save-"+ nbfoiswritten+ ".csv"))
                 {
                     //Intro en-tête du fichier:
                     ecrivain.WriteLine("Numéros;Nombres de fois tirés");
                     foreach (Label lblinrun in lblcollection)
                     {
-                        ecrivain.WriteLine(numerolabel + ";" + lblinrun.Text);  //; pour le format csv
+                        if (lblinrun.Name.Contains("lblNb")==true)
+                        {
+ ecrivain.WriteLine(numerolabel + ";" + lblinrun.Text);  //; pour le format csv
                         numerolabel++;
+                        }
+                       
                     }
+                    nbfoiswritten++;
                 }
                 MessageBox.Show("Correctement sauvé !");
             }
@@ -256,10 +264,14 @@ namespace Random_Analysis
                 MessageBox.Show("Problème avec le fichier ! pas pu sauver les résultats...", "Erreur de fichier");
             }
         }
+        private void CmdSave_Click(object sender, EventArgs e)
+        {
+            saveresults();
+        }
 
         private void TmrEcriture_Tick(object sender, EventArgs e)
         {
-            CmdSave_Click(sender, e);
+            saveresults();
         }
     }
 

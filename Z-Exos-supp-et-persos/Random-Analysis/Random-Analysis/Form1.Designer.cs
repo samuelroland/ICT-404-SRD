@@ -121,9 +121,9 @@
             this.lblNb14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblNb14.Location = new System.Drawing.Point(29, 458);
             this.lblNb14.Name = "lblNb14";
-            this.lblNb14.Size = new System.Drawing.Size(22, 15);
+            this.lblNb14.Size = new System.Drawing.Size(33, 15);
             this.lblNb14.TabIndex = 8;
-            this.lblNb14.Text = "3";
+            this.lblNb14.Text = "3059";
             this.lblNb14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tmrRandomGenerator
@@ -143,12 +143,12 @@
             // 
             // txtRandomResult
             // 
-            this.txtRandomResult.Location = new System.Drawing.Point(12, 494);
+            this.txtRandomResult.Location = new System.Drawing.Point(12, 476);
             this.txtRandomResult.Multiline = true;
             this.txtRandomResult.Name = "txtRandomResult";
             this.txtRandomResult.ReadOnly = true;
             this.txtRandomResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtRandomResult.Size = new System.Drawing.Size(1118, 223);
+            this.txtRandomResult.Size = new System.Drawing.Size(1630, 241);
             this.txtRandomResult.TabIndex = 11;
             this.txtRandomResult.Text = "Randoms: ";
             this.txtRandomResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 742);
+            this.ClientSize = new System.Drawing.Size(1654, 742);
             this.Controls.Add(this.txtRandomResult);
             this.Controls.Add(this.lblDifferenceMax);
             this.Controls.Add(this.lblNb14);
