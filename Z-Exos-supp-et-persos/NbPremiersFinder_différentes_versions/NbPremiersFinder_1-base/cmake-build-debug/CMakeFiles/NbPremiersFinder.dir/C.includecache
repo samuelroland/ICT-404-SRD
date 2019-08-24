@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/PC_Samuel_01/Documents/TEMP/archives/NbPremiersFinder_1-base/main.c
+stdio.h
+-
+stdbool.h
+-
+stdlib.h
+-
+
