@@ -64,6 +64,7 @@
             this.txtTxtSearchFilename = new System.Windows.Forms.TextBox();
             this.lblChoixTypeFilename = new System.Windows.Forms.Label();
             this.cboChoixTypeFilename = new System.Windows.Forms.ComboBox();
+            this.chkInclureNomCours = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -161,6 +162,13 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Enregistrer une nouvelle préconfiguration à partir des infos choisies ci-dessous",
+            "Renommer la préconfiguration selectionnée",
+            "Supprimer la préconfiguration selectionnée",
+            "---------------------------------------------------------------------------------" +
+                "---",
+            "préconfig1 SRD pour docx"});
             this.comboBox1.Location = new System.Drawing.Point(366, 14);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(449, 21);
@@ -265,9 +273,9 @@
             // 
             this.label4.Location = new System.Drawing.Point(32, 593);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(677, 92);
+            this.label4.Size = new System.Drawing.Size(532, 92);
             this.label4.TabIndex = 23;
-            this.label4.Text = "zZZzzzZZZZZZZs";
+            this.label4.Text = "Explication des actions:\r\n...........\r\n..........\r\n.....\r\n.\r\n.\r\n.\r\n.\r\n.\r\n";
             // 
             // lstHistorique
             // 
@@ -384,6 +392,7 @@
             this.cboPositionTxtSearchFilename.Name = "cboPositionTxtSearchFilename";
             this.cboPositionTxtSearchFilename.Size = new System.Drawing.Size(90, 21);
             this.cboPositionTxtSearchFilename.TabIndex = 34;
+            this.cboPositionTxtSearchFilename.SelectedIndexChanged += new System.EventHandler(this.donneesmodifiees);
             // 
             // txtTxtSearchFilename
             // 
@@ -397,9 +406,9 @@
             this.lblChoixTypeFilename.AutoSize = true;
             this.lblChoixTypeFilename.Location = new System.Drawing.Point(534, 51);
             this.lblChoixTypeFilename.Name = "lblChoixTypeFilename";
-            this.lblChoixTypeFilename.Size = new System.Drawing.Size(42, 13);
+            this.lblChoixTypeFilename.Size = new System.Drawing.Size(96, 13);
             this.lblChoixTypeFilename.TabIndex = 36;
-            this.lblChoixTypeFilename.Text = "de type";
+            this.lblChoixTypeFilename.Text = "de type (extension)";
             // 
             // cboChoixTypeFilename
             // 
@@ -408,10 +417,20 @@
             ".docx, .doc",
             ".txt",
             ".odt, .odtm"});
-            this.cboChoixTypeFilename.Location = new System.Drawing.Point(582, 47);
+            this.cboChoixTypeFilename.Location = new System.Drawing.Point(636, 47);
             this.cboChoixTypeFilename.Name = "cboChoixTypeFilename";
             this.cboChoixTypeFilename.Size = new System.Drawing.Size(90, 21);
             this.cboChoixTypeFilename.TabIndex = 37;
+            // 
+            // chkInclureNomCours
+            // 
+            this.chkInclureNomCours.AutoSize = true;
+            this.chkInclureNomCours.Location = new System.Drawing.Point(629, 105);
+            this.chkInclureNomCours.Name = "chkInclureNomCours";
+            this.chkInclureNomCours.Size = new System.Drawing.Size(270, 17);
+            this.chkInclureNomCours.TabIndex = 38;
+            this.chkInclureNomCours.Text = "Inclure nom du cours (dossier gd-parent puis parent)";
+            this.chkInclureNomCours.UseVisualStyleBackColor = true;
             // 
             // frmFileRenamer
             // 
@@ -419,6 +438,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 734);
             this.ControlBox = false;
+            this.Controls.Add(this.chkInclureNomCours);
             this.Controls.Add(this.cboChoixTypeFilename);
             this.Controls.Add(this.lblChoixTypeFilename);
             this.Controls.Add(this.txtTxtSearchFilename);
@@ -500,6 +520,7 @@
         private System.Windows.Forms.TextBox txtTxtSearchFilename;
         private System.Windows.Forms.Label lblChoixTypeFilename;
         private System.Windows.Forms.ComboBox cboChoixTypeFilename;
+        private System.Windows.Forms.CheckBox chkInclureNomCours;
     }
 }
 

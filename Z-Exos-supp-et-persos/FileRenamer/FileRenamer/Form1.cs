@@ -159,6 +159,9 @@ namespace FileRenamer
             {
                 MessageBox.Show("Il reste encore des erreurs à gérer ! Ne quitter pas avant d'avoir tout géré !");
             }
+
+            //Pour les tests:
+            Application.Exit();
         }
 
         private void CmdEcraser_Click(object sender, EventArgs e)
@@ -178,6 +181,47 @@ namespace FileRenamer
         {
             //Ne rien faire.
             //TODO: une fois traité, retirer l'erreur de la liste.
+        }
+
+        private void donneesmodifiees(object sender, EventArgs e)
+        {
+            //ajouter "MODIFIé !" au nom de la préconfig:
+
+            //importer les données du formulaire:
+            importdataform();
+
+        }
+        void importdataform()   //sert à importer les données du formulaire dans les variables du programme.
+        {
+
+        }
+        void importdatafile(string filepath)   //sert à importer les données d'un fichier dans les variables du programme.
+        {
+
+        }
+        void afficherdataonform()   //sert à afficher les données du programme sur le formulaire.
+        {
+
+        }
+        void sauverpreconfig(string nomchoisi)  //sert à enregistrer une nouvelle préconfiguration.
+        {
+            if (datachecker())
+            {
+
+            }
+            else
+            {
+                //il y a des données invalides. msg d'erreur car ne peut pas sauver:
+                MessageBox.Show("Il y a des données invalides dans le formulaire. Corrigez les avant de sauver la préconfiguration.", "Données invalides...");
+            }
+            //TODO:
+        }
+        bool datachecker()  //sert à vérifier toutes les données présentes sur le formulaire.
+        {
+
+
+
+            return true;
         }
     }
 }
