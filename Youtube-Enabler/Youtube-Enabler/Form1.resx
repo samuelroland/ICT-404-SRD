@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblInfo.Text" xml:space="preserve">
+    <value>Tu passes trop de temps sur youtube ? Tu n'arrives plus gérer le temps que tu passes à regarder des vidéos ?
+Désactive le site www.youtube.com ! Laisse toi du temps pour avancer dans un projet qui te tient à coeur...
+
+Sois tu désactives manuellement, mais si tu as peur de réactiver parce que ca te fait trop envie, donne un temps sur lequel tu ne peux pas y accéder.
+Redémarre le navigateur si la désactivation ne fonctionne pas.</value>
+  </data>
 </root>
