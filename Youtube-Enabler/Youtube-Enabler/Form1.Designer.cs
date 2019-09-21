@@ -40,6 +40,7 @@
             this.lblChoixDuree = new System.Windows.Forms.Label();
             this.txtChoixDuree = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.grpConfiguration.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +92,7 @@
             this.rdbChoixManuel.TabStop = true;
             this.rdbChoixManuel.Text = "Choix manuel";
             this.rdbChoixManuel.UseVisualStyleBackColor = true;
+            this.rdbChoixManuel.CheckedChanged += new System.EventHandler(this.RdbChoixManuel_CheckedChanged);
             // 
             // rdbChoixTemps
             // 
@@ -102,6 +104,7 @@
             this.rdbChoixTemps.TabStop = true;
             this.rdbChoixTemps.Text = "Choix limité avec le temps";
             this.rdbChoixTemps.UseVisualStyleBackColor = true;
+            this.rdbChoixTemps.CheckedChanged += new System.EventHandler(this.RdbChoixTemps_CheckedChanged);
             // 
             // grpConfiguration
             // 
@@ -145,6 +148,7 @@
             this.txtChoixDuree.Size = new System.Drawing.Size(100, 20);
             this.txtChoixDuree.TabIndex = 7;
             this.txtChoixDuree.Text = "1.5";
+            this.txtChoixDuree.TextChanged += new System.EventHandler(this.TxtChoixDuree_TextChanged);
             // 
             // label1
             // 
@@ -155,17 +159,28 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Temps restant: ";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(195, 272);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 10;
+            // 
             // frmYoutubeEnabler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 348);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblEtat);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.grpConfiguration);
             this.Name = "frmYoutubeEnabler";
-            this.Text = "YoutubeEnabler permet de désactiver l\'accès à youtube.";
+            this.Text = "YoutubeEnabler désactive l\'accès à youtube.";
+            this.Load += new System.EventHandler(this.FrmYoutubeEnabler_Load);
             this.grpConfiguration.ResumeLayout(false);
             this.grpConfiguration.PerformLayout();
             this.ResumeLayout(false);
@@ -186,6 +201,7 @@
         private System.Windows.Forms.TextBox txtChoixDuree;
         private System.Windows.Forms.Button cmdDesactiverTemps;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblError;
     }
 }
 
