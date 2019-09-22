@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYoutubeEnabler));
             this.lblInfo = new System.Windows.Forms.Label();
             this.lblEtat = new System.Windows.Forms.Label();
@@ -39,8 +40,10 @@
             this.cmdDesactiverTemps = new System.Windows.Forms.Button();
             this.lblChoixDuree = new System.Windows.Forms.Label();
             this.txtChoixDuree = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTempsRestant = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.tmrTempsRestant = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.grpConfiguration.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,14 +153,14 @@
             this.txtChoixDuree.Text = "1.5";
             this.txtChoixDuree.TextChanged += new System.EventHandler(this.TxtChoixDuree_TextChanged);
             // 
-            // label1
+            // lblTempsRestant
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(210, 301);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Temps restant: ";
+            this.lblTempsRestant.AutoSize = true;
+            this.lblTempsRestant.Location = new System.Drawing.Point(210, 301);
+            this.lblTempsRestant.Name = "lblTempsRestant";
+            this.lblTempsRestant.Size = new System.Drawing.Size(80, 13);
+            this.lblTempsRestant.TabIndex = 9;
+            this.lblTempsRestant.Text = "Temps restant: ";
             // 
             // lblError
             // 
@@ -168,14 +171,30 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 10;
             // 
+            // tmrTempsRestant
+            // 
+            this.tmrTempsRestant.Interval = 2000;
+            this.tmrTempsRestant.Tick += new System.EventHandler(this.TmrTempsRestant_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(210, 272);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Encore bloqué pour un certain temps...";
+            // 
             // frmYoutubeEnabler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 348);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblEtat);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTempsRestant);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.grpConfiguration);
             this.Name = "frmYoutubeEnabler";
@@ -200,8 +219,10 @@
         private System.Windows.Forms.Label lblChoixDuree;
         private System.Windows.Forms.TextBox txtChoixDuree;
         private System.Windows.Forms.Button cmdDesactiverTemps;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTempsRestant;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Timer tmrTempsRestant;
+        private System.Windows.Forms.Label label1;
     }
 }
 

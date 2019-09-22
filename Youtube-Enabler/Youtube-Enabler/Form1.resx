@@ -124,4 +124,7 @@ Désactive le site www.youtube.com ! Laisse toi du temps pour avancer dans un pr
 Sois tu désactives manuellement, mais si tu as peur de réactiver parce que ca te fait trop envie, donne un temps sur lequel tu ne peux pas y accéder.
 Redémarre le navigateur si la désactivation ne fonctionne pas.</value>
   </data>
+  <metadata name="tmrTempsRestant.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

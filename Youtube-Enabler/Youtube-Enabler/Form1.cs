@@ -28,8 +28,11 @@ namespace Youtube_Enabler
         {
             gereroptions(); //pour initialiser l'affichage des options.
             //afficher le temps si en cours et bloquer options sur choix durée:
-
         }
+
+        //variables globales:
+        string filepath = "%AppData%\\Youtube-Enabler\\time.cnfg";
+        
 
         private void CmdDesactiver_Click(object sender, EventArgs e)
         {
@@ -119,16 +122,13 @@ namespace Youtube_Enabler
                 //tout désactiver coté choix du temps.
                 cmdDesactiverTemps.Enabled = false;
                 txtChoixDuree.Enabled = false;
-
             }
             else
             {
                 //Donc le choix est la durée.
-
                 //tout activer coté choix manuel.
                 cmdDesactiverTemps.Enabled = true;
                 txtChoixDuree.Enabled = true;
-
 
                 //tout désactiver coté choix du temps.
                 cmdDesactiver.Enabled = false;
@@ -136,8 +136,6 @@ namespace Youtube_Enabler
 
             }
         }
-
-
 
         private void TxtChoixDuree_TextChanged(object sender, EventArgs e)
         {
@@ -151,7 +149,13 @@ namespace Youtube_Enabler
                 txtChoixDuree.BackColor = Color.IndianRed;
             }
         }
-        DateTime timetoblock;
+        //Gestion des dates et temps
+        DateTime timetoblock;   //date jusqu'à laquelle youtube est bloqué.
+        DateTime now; //prendra la valeur de la date du jour.
+        TimeSpan timetowait;    //temps à attendre.
+        float minutes;  //timetowait en minutes.
+        float hours;    //timetowait en heures.
+
         string strngtimetoblock;
         bool autorizedactivation = false;
 
@@ -162,18 +166,28 @@ namespace Youtube_Enabler
             bool found = false; //défini si le fichier a été trouvé et est valide, et quon peut prendre la valeur de timetoblock:
 
             //Chercher un fichier dans %appdata%/Youtube-Enabler:
-            if (File.Exists("%appdata%\\Youtube-Enabler\\time.cnfg"))
+            if (File.Exists(filepath))
             {
                 try
                 {
-                    using (lecteur = new StreamReader("%appdata%\\Youtube-Enabler\\time.cnfg"))
+                    using (lecteur = new StreamReader(filepath))
                     {
                         filecontent = lecteur.ReadToEnd();
                     }
                     strngtimetoblock = filecontent.Substring(filecontent.IndexOf("\\") + 1, filecontent.Length - filecontent.IndexOf("\\") - 1);
                     //convertir strngtimetoblock en date pour timetoblock:
-                    timetoblock= DateTime.Parse(strngtimetoblock);
-                    MessageBox.Show(timetoblock.ToString());
+                    timetoblock = DateTime.Parse(strngtimetoblock);
+                    now = DateTime.Now;
+                    if (timetoblock > now)    //si inférieur, calculer le temps restant et bloquer l'activation.
+                    {
+                        affichagetempsrestant();
+                        //bloquer l'activation:
+                        autorizedactivation = false;
+                    }
+                    else
+                    {
+                        File.Delete(filepath);
+                    }
 
                 }
                 catch (Exception)
@@ -191,7 +205,30 @@ namespace Youtube_Enabler
             return found;
         }
 
+        void affichagetempsrestant()
+        {
+            //Prendre la date de maintenant.
+            now = DateTime.Now;
+            //calculer le temps à attendre.
+            timetowait = timetoblock - now;
+            //Activer le timer:
+            tmrTempsRestant.Enabled = true;
+            //Calcul de minutes et hours
+            minutes = timetowait.Seconds / 60;
+            minutes += timetowait.Minutes;
+            minutes += timetowait.Hours * 60;
+            minutes += timetowait.Days * 24 * 60;
 
+            hours = minutes / 60;
+            lblTempsRestant.Text = "Temps restant: " + minutes + " minutes ou " + hours + " heures";
+
+        }
+        
+        private void TmrTempsRestant_Tick(object sender, EventArgs e)
+        {
+            affichagetempsrestant();
+        }
     }
+
 }
 
