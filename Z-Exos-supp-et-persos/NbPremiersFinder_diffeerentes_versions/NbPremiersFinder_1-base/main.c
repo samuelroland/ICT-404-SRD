@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main() {
     int nbinrun = 0;  //nb en cours de test
@@ -15,9 +16,11 @@ int main() {
     int nbnbspremiers=0;    //nombre de nombres premiers trouvés.
 
     //intro + nbmax demander
-    printf("\nProgramme pour les nbs aléatoires. donnez un max: ");
+    printf("\nProgramme pour les nbs aleatoires. donnez un max: ");
     scanf("%d", &nbmax);
 
+    //time de début:
+    time_t tstart=time(NULL);
 
     for (int i = 1; i <= nbmax; ++i) {
         nbinrun = i;
@@ -45,7 +48,12 @@ int main() {
             nbnbspremiers++;
         }
     }
+
+    //time de fin:
+    time_t tend=time(NULL);
+    int difftemps = tend-tstart;
     printf("\n\nTermine, %d nombres premiers trouves entre 1 et %d !\n", nbnbspremiers, nbmax);
+    printf("\nTemps pour calculer ces %d nombres premiers: %d secondes...", nbnbspremiers, difftemps);
     system("pause");
 
     return 0;
