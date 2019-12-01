@@ -65,12 +65,18 @@
             this.lblChoixTypeFilename = new System.Windows.Forms.Label();
             this.cboChoixTypeFilename = new System.Windows.Forms.ComboBox();
             this.chkInclureNomCours = new System.Windows.Forms.CheckBox();
+            this.cboSeparateur2 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboIntroSemaine = new System.Windows.Forms.ComboBox();
+            this.cboChoixNumeroFin = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnValidationCours = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 364);
+            this.label1.Location = new System.Drawing.Point(32, 456);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 13);
             this.label1.TabIndex = 0;
@@ -131,21 +137,21 @@
             // 
             // txtIntro
             // 
-            this.txtIntro.Location = new System.Drawing.Point(88, 101);
+            this.txtIntro.Location = new System.Drawing.Point(83, 101);
             this.txtIntro.Name = "txtIntro";
             this.txtIntro.Size = new System.Drawing.Size(85, 20);
             this.txtIntro.TabIndex = 7;
             // 
             // txtAcronyme
             // 
-            this.txtAcronyme.Location = new System.Drawing.Point(341, 101);
+            this.txtAcronyme.Location = new System.Drawing.Point(356, 102);
             this.txtAcronyme.Name = "txtAcronyme";
             this.txtAcronyme.Size = new System.Drawing.Size(63, 20);
             this.txtAcronyme.TabIndex = 9;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(474, 101);
+            this.textBox1.Location = new System.Drawing.Point(748, 154);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(134, 20);
             this.textBox1.TabIndex = 11;
@@ -153,7 +159,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(440, 104);
+            this.label2.Location = new System.Drawing.Point(714, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 10;
@@ -186,7 +192,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 401);
+            this.label5.Location = new System.Drawing.Point(32, 493);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 13);
             this.label5.TabIndex = 15;
@@ -204,14 +210,14 @@
             "s",
             "sa",
             "sfafasgags"});
-            this.lstErrors.Location = new System.Drawing.Point(35, 426);
+            this.lstErrors.Location = new System.Drawing.Point(35, 518);
             this.lstErrors.Name = "lstErrors";
             this.lstErrors.Size = new System.Drawing.Size(753, 121);
             this.lstErrors.TabIndex = 16;
             // 
             // cmdUseUniqueNames
             // 
-            this.cmdUseUniqueNames.Location = new System.Drawing.Point(414, 551);
+            this.cmdUseUniqueNames.Location = new System.Drawing.Point(414, 643);
             this.cmdUseUniqueNames.Name = "cmdUseUniqueNames";
             this.cmdUseUniqueNames.Size = new System.Drawing.Size(150, 23);
             this.cmdUseUniqueNames.TabIndex = 17;
@@ -221,7 +227,7 @@
             // 
             // cmdNotTraiter
             // 
-            this.cmdNotTraiter.Location = new System.Drawing.Point(570, 551);
+            this.cmdNotTraiter.Location = new System.Drawing.Point(570, 643);
             this.cmdNotTraiter.Name = "cmdNotTraiter";
             this.cmdNotTraiter.Size = new System.Drawing.Size(134, 23);
             this.cmdNotTraiter.TabIndex = 18;
@@ -231,7 +237,7 @@
             // 
             // cmdEcraser
             // 
-            this.cmdEcraser.Location = new System.Drawing.Point(710, 551);
+            this.cmdEcraser.Location = new System.Drawing.Point(710, 643);
             this.cmdEcraser.Name = "cmdEcraser";
             this.cmdEcraser.Size = new System.Drawing.Size(78, 23);
             this.cmdEcraser.TabIndex = 19;
@@ -242,7 +248,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(245, 555);
+            this.label6.Location = new System.Drawing.Point(245, 647);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(163, 13);
             this.label6.TabIndex = 20;
@@ -262,7 +268,7 @@
             // chkAppliquerttserros
             // 
             this.chkAppliquerttserros.AutoSize = true;
-            this.chkAppliquerttserros.Location = new System.Drawing.Point(35, 555);
+            this.chkAppliquerttserros.Location = new System.Drawing.Point(35, 647);
             this.chkAppliquerttserros.Name = "chkAppliquerttserros";
             this.chkAppliquerttserros.Size = new System.Drawing.Size(138, 17);
             this.chkAppliquerttserros.TabIndex = 22;
@@ -271,7 +277,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(32, 593);
+            this.label4.Location = new System.Drawing.Point(32, 685);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(532, 92);
             this.label4.TabIndex = 23;
@@ -283,7 +289,7 @@
             this.lstHistorique.Items.AddRange(new object[] {
             "pris doc1.docx et mis dans Répertoire\\ict\\123\\notes\\ sous meme nom",
             "pris doc1.docx et mis dans Répertoire\\ict\\123\\notes\\ sous .....-2.docx"});
-            this.lstHistorique.Location = new System.Drawing.Point(35, 162);
+            this.lstHistorique.Location = new System.Drawing.Point(35, 254);
             this.lstHistorique.Name = "lstHistorique";
             this.lstHistorique.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lstHistorique.Size = new System.Drawing.Size(753, 199);
@@ -292,7 +298,7 @@
             // lblHistorique
             // 
             this.lblHistorique.AutoSize = true;
-            this.lblHistorique.Location = new System.Drawing.Point(32, 146);
+            this.lblHistorique.Location = new System.Drawing.Point(32, 238);
             this.lblHistorique.Name = "lblHistorique";
             this.lblHistorique.Size = new System.Drawing.Size(191, 13);
             this.lblHistorique.TabIndex = 25;
@@ -301,27 +307,33 @@
             // chkIntro
             // 
             this.chkIntro.AutoSize = true;
+            this.chkIntro.Checked = true;
+            this.chkIntro.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkIntro.Location = new System.Drawing.Point(35, 101);
             this.chkIntro.Name = "chkIntro";
             this.chkIntro.Size = new System.Drawing.Size(47, 17);
             this.chkIntro.TabIndex = 26;
             this.chkIntro.Text = "Intro";
             this.chkIntro.UseVisualStyleBackColor = true;
+            this.chkIntro.CheckedChanged += new System.EventHandler(this.ChkIntro_CheckedChanged);
             // 
             // chkAcronyme
             // 
             this.chkAcronyme.AutoSize = true;
-            this.chkAcronyme.Location = new System.Drawing.Point(262, 103);
+            this.chkAcronyme.Checked = true;
+            this.chkAcronyme.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAcronyme.Location = new System.Drawing.Point(244, 104);
             this.chkAcronyme.Name = "chkAcronyme";
-            this.chkAcronyme.Size = new System.Drawing.Size(73, 17);
+            this.chkAcronyme.Size = new System.Drawing.Size(109, 17);
             this.chkAcronyme.TabIndex = 27;
-            this.chkAcronyme.Text = "Acronyme";
+            this.chkAcronyme.Text = "Acronyme/Auteur";
             this.chkAcronyme.UseVisualStyleBackColor = true;
+            this.chkAcronyme.CheckedChanged += new System.EventHandler(this.ChkAcronyme_CheckedChanged);
             // 
             // lblResultStructureInfo
             // 
             this.lblResultStructureInfo.AutoSize = true;
-            this.lblResultStructureInfo.Location = new System.Drawing.Point(288, 133);
+            this.lblResultStructureInfo.Location = new System.Drawing.Point(32, 171);
             this.lblResultStructureInfo.Name = "lblResultStructureInfo";
             this.lblResultStructureInfo.Size = new System.Drawing.Size(225, 13);
             this.lblResultStructureInfo.TabIndex = 28;
@@ -330,11 +342,11 @@
             // lblResultStructure
             // 
             this.lblResultStructure.AutoSize = true;
-            this.lblResultStructure.Location = new System.Drawing.Point(519, 133);
+            this.lblResultStructure.Location = new System.Drawing.Point(263, 171);
             this.lblResultStructure.Name = "lblResultStructure";
-            this.lblResultStructure.Size = new System.Drawing.Size(138, 13);
+            this.lblResultStructure.Size = new System.Drawing.Size(241, 13);
             this.lblResultStructure.TabIndex = 29;
-            this.lblResultStructure.Text = "Ntes-SRD_ICT114-S1.docx";
+            this.lblResultStructure.Text = "de docnotes2.docx à Ntes-SRD_ICT114-S2.docx";
             // 
             // cboSeparateur1
             // 
@@ -344,13 +356,12 @@
             "- tiret",
             "_ tiret bas",
             ". point",
-            "-- double tiret",
-            "__ double tirets bas",
-            "  espace"});
-            this.cboSeparateur1.Location = new System.Drawing.Point(188, 101);
+            " espace"});
+            this.cboSeparateur1.Location = new System.Drawing.Point(178, 101);
             this.cboSeparateur1.Name = "cboSeparateur1";
             this.cboSeparateur1.Size = new System.Drawing.Size(57, 21);
             this.cboSeparateur1.TabIndex = 30;
+            this.cboSeparateur1.Text = "Séparateur";
             // 
             // lblDepartInfo
             // 
@@ -366,7 +377,7 @@
             // 
             this.lblGestionErreursInfo.BackColor = System.Drawing.Color.CornflowerBlue;
             this.lblGestionErreursInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGestionErreursInfo.Location = new System.Drawing.Point(341, 392);
+            this.lblGestionErreursInfo.Location = new System.Drawing.Point(341, 484);
             this.lblGestionErreursInfo.Name = "lblGestionErreursInfo";
             this.lblGestionErreursInfo.Size = new System.Drawing.Size(447, 22);
             this.lblGestionErreursInfo.TabIndex = 32;
@@ -377,9 +388,9 @@
             this.lblTxtSearchFilename.AutoSize = true;
             this.lblTxtSearchFilename.Location = new System.Drawing.Point(234, 51);
             this.lblTxtSearchFilename.Name = "lblTxtSearchFilename";
-            this.lblTxtSearchFilename.Size = new System.Drawing.Size(113, 13);
+            this.lblTxtSearchFilename.Size = new System.Drawing.Size(136, 13);
             this.lblTxtSearchFilename.TabIndex = 33;
-            this.lblTxtSearchFilename.Text = "Pour tous les fichiers...";
+            this.lblTxtSearchFilename.Text = "Nom des fichiers (sans ext.)";
             // 
             // cboPositionTxtSearchFilename
             // 
@@ -400,6 +411,7 @@
             this.txtTxtSearchFilename.Name = "txtTxtSearchFilename";
             this.txtTxtSearchFilename.Size = new System.Drawing.Size(85, 20);
             this.txtTxtSearchFilename.TabIndex = 35;
+            this.txtTxtSearchFilename.Text = "docnotes";
             // 
             // lblChoixTypeFilename
             // 
@@ -425,12 +437,93 @@
             // chkInclureNomCours
             // 
             this.chkInclureNomCours.AutoSize = true;
-            this.chkInclureNomCours.Location = new System.Drawing.Point(629, 105);
+            this.chkInclureNomCours.Location = new System.Drawing.Point(487, 102);
             this.chkInclureNomCours.Name = "chkInclureNomCours";
-            this.chkInclureNomCours.Size = new System.Drawing.Size(270, 17);
+            this.chkInclureNomCours.Size = new System.Drawing.Size(125, 17);
             this.chkInclureNomCours.TabIndex = 38;
-            this.chkInclureNomCours.Text = "Inclure nom du cours (dossier gd-parent puis parent)";
+            this.chkInclureNomCours.Text = "Inclure nom du cours";
             this.chkInclureNomCours.UseVisualStyleBackColor = true;
+            // 
+            // cboSeparateur2
+            // 
+            this.cboSeparateur2.FormattingEnabled = true;
+            this.cboSeparateur2.Items.AddRange(new object[] {
+            "aucun",
+            "- tiret",
+            "_ tiret bas",
+            ". point",
+            " espace"});
+            this.cboSeparateur2.Location = new System.Drawing.Point(425, 100);
+            this.cboSeparateur2.Name = "cboSeparateur2";
+            this.cboSeparateur2.Size = new System.Drawing.Size(57, 21);
+            this.cboSeparateur2.TabIndex = 39;
+            this.cboSeparateur2.Text = "Séparateur";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "aucun",
+            "- tiret",
+            "_ tiret bas",
+            ". point",
+            " espace"});
+            this.comboBox2.Location = new System.Drawing.Point(618, 100);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(57, 21);
+            this.comboBox2.TabIndex = 40;
+            this.comboBox2.Text = "Séparateur";
+            // 
+            // cboIntroSemaine
+            // 
+            this.cboIntroSemaine.FormattingEnabled = true;
+            this.cboIntroSemaine.Items.AddRange(new object[] {
+            "Aucun",
+            "S",
+            "Sem",
+            "Semaine",
+            "W",
+            "Week",
+            "N",
+            "Numéro",
+            "Numero",
+            "Num"});
+            this.cboIntroSemaine.Location = new System.Drawing.Point(713, 101);
+            this.cboIntroSemaine.Name = "cboIntroSemaine";
+            this.cboIntroSemaine.Size = new System.Drawing.Size(87, 21);
+            this.cboIntroSemaine.TabIndex = 41;
+            this.cboIntroSemaine.Text = "Intro";
+            // 
+            // cboChoixNumeroFin
+            // 
+            this.cboChoixNumeroFin.FormattingEnabled = true;
+            this.cboChoixNumeroFin.Items.AddRange(new object[] {
+            "Numéro de semaine auto",
+            "Premier numéro dans nom de fichier"});
+            this.cboChoixNumeroFin.Location = new System.Drawing.Point(806, 101);
+            this.cboChoixNumeroFin.Name = "cboChoixNumeroFin";
+            this.cboChoixNumeroFin.Size = new System.Drawing.Size(179, 21);
+            this.cboChoixNumeroFin.TabIndex = 43;
+            this.cboChoixNumeroFin.Text = "A choisir";
+            this.cboChoixNumeroFin.SelectedIndexChanged += new System.EventHandler(this.CboChoixNumeroFin_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(32, 208);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(125, 13);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Différents cours trouvés: ";
+            // 
+            // btnValidationCours
+            // 
+            this.btnValidationCours.Location = new System.Drawing.Point(617, 203);
+            this.btnValidationCours.Name = "btnValidationCours";
+            this.btnValidationCours.Size = new System.Drawing.Size(171, 23);
+            this.btnValidationCours.TabIndex = 45;
+            this.btnValidationCours.Text = "Valider et lancer le processus";
+            this.btnValidationCours.UseVisualStyleBackColor = true;
             // 
             // frmFileRenamer
             // 
@@ -438,6 +531,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 734);
             this.ControlBox = false;
+            this.Controls.Add(this.btnValidationCours);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cboChoixNumeroFin);
+            this.Controls.Add(this.cboIntroSemaine);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboSeparateur2);
             this.Controls.Add(this.chkInclureNomCours);
             this.Controls.Add(this.cboChoixTypeFilename);
             this.Controls.Add(this.lblChoixTypeFilename);
@@ -521,6 +620,12 @@
         private System.Windows.Forms.Label lblChoixTypeFilename;
         private System.Windows.Forms.ComboBox cboChoixTypeFilename;
         private System.Windows.Forms.CheckBox chkInclureNomCours;
+        private System.Windows.Forms.ComboBox cboSeparateur2;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboIntroSemaine;
+        private System.Windows.Forms.ComboBox cboChoixNumeroFin;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnValidationCours;
     }
 }
 

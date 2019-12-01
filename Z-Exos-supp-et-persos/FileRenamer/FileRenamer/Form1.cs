@@ -22,12 +22,13 @@ namespace FileRenamer
         {
             InitializeComponent();
         }
-
-        DirectoryInfo folder = new DirectoryInfo("C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\ICT\\123");
+        string searchfile;  //nom des fichiers à rechercher avec *
+        string folderpath = "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\ICT\\123";
+        DirectoryInfo folder = null;
         string placeholderchoixrepertoire = "Exemple: P:\\2eme année";
         private void CmdLancer_Click(object sender, EventArgs e)
         {
-
+            folder = new DirectoryInfo(folderpath);
             //test pour début de renommer un fichier:
             StreamWriter ecrivain = null;
             int i = 0;
@@ -40,13 +41,32 @@ namespace FileRenamer
             string intro = "Nts";
             string fileinrunpath;   //chemin accès au fichier en cours.
             int indextypemodule = 0;
-            //Scann de tous les fichiers du répértoire:
-            foreach (var fileinrun in folder.GetFiles())
-            {
 
-                if (fileinrun.Name.Contains("doc"))
+            //charger searchfile:
+            switch (cboPositionTxtSearchFilename.SelectedItem)
+            {
+                case "commencant par":
+                    searchfile = txtTxtSearchFilename.Text + "*.*";
+                    break;
+                case "contenant":
+                    searchfile = "*" + txtTxtSearchFilename.Text+ "*.*";
+                    break;
+                case "se terminant par":
+                    searchfile = "*" + txtTxtSearchFilename.Text + ".*";
+                    break;
+                default:
+                    searchfile = "*" + txtTxtSearchFilename.Text + "*.*";
+                    break;
+            }
+
+            //Scann de tous les fichiers du répértoire:
+            foreach (var fileinrun in Directory.GetFiles(folderpath, searchfile, SearchOption.AllDirectories))
+            {
+                string filename = fileinrun.ToString();
+                fileinrunpath = fileinrun;  //attribuer le fullname au path
+                filename = filename.Substring(filename.LastIndexOf("\\")+1);    //ne prendre que le nom à la fin du path;
+                if (filename.Contains(txtTxtSearchFilename.Text))
                 {
-                    fileinrunpath = fileinrun.FullName;
                     i++;
 
                     //Définition du noms du cours 
@@ -66,14 +86,14 @@ namespace FileRenamer
                     //TODO: créer le dossier "Notes" si il n'existe pas:
                     // Directory.CreateDirectory();
 
-                    string oldfileinrunpath = "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\" + typecours + "\\" + numcours + "\\" + fileinrun.Name;
+                    string oldfileinrunpath = "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\" + typecours + "\\" + numcours + "\\" + filename;
                     File.Copy(oldfileinrunpath, "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\ICT\\123\\Notes\\" + newname);
                     label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
                     label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
 
                     //supprimer l'ancien fichier nom renommé encore à l'emplacement dans le dossier du module:
                     File.Delete(oldfileinrunpath);
-                    label1.Text += "\nFichier base supprimé: " + fileinrun.Name;
+                    label1.Text += "\nFichier base supprimé: " + filename;
 
                 }
             }
@@ -157,11 +177,12 @@ namespace FileRenamer
             }
             else
             {
+                //Pour les tests:
+            Application.Exit();
                 MessageBox.Show("Il reste encore des erreurs à gérer ! Ne quitter pas avant d'avoir tout géré !");
             }
 
-            //Pour les tests:
-            Application.Exit();
+            
         }
 
         private void CmdEcraser_Click(object sender, EventArgs e)
@@ -222,6 +243,41 @@ namespace FileRenamer
 
 
             return true;
+        }
+
+        private void ChkIntro_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkIntro.Checked)
+            {
+                txtIntro.Enabled = true;
+
+            }
+            else
+            {
+                txtIntro.Enabled = false;
+            }
+        }
+
+        
+
+        private void CboChoixNumeroFin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboChoixNumeroFin.SelectedIndex ==1)    //donc que c'est sur Numéro semaine auto.
+            {
+
+            } 
+        }
+
+        private void ChkAcronyme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAcronyme.Checked)
+            {
+                txtAcronyme.Enabled = true;
+            }
+            else
+            {
+                txtAcronyme.Enabled = false;
+            }
         }
     }
 }
