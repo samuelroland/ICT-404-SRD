@@ -66,7 +66,7 @@
             this.cboChoixTypeFilename = new System.Windows.Forms.ComboBox();
             this.chkInclureNomCours = new System.Windows.Forms.CheckBox();
             this.cboSeparateur2 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboSeparateur3 = new System.Windows.Forms.ComboBox();
             this.cboIntroSemaine = new System.Windows.Forms.ComboBox();
             this.cboChoixNumeroFin = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -109,7 +109,8 @@
             this.txtChoixRepertoire.Name = "txtChoixRepertoire";
             this.txtChoixRepertoire.Size = new System.Drawing.Size(517, 20);
             this.txtChoixRepertoire.TabIndex = 3;
-            this.txtChoixRepertoire.Text = "Exemple ........";
+            this.txtChoixRepertoire.Text = "C:\\Users\\samuel.roland\\Documents\\Github\\ICT-404-SRD\\Z-Exos-supp-et-persos\\FileRen" +
+    "amer\\FileRenamer\\bin\\Debug\\2emeanneetest";
             this.txtChoixRepertoire.TextChanged += new System.EventHandler(this.TxtChoixRepertoire_TextChanged);
             this.txtChoixRepertoire.Enter += new System.EventHandler(this.TxtChoixRepertoire_Enter);
             this.txtChoixRepertoire.Leave += new System.EventHandler(this.TxtChoixRepertoire_Leave);
@@ -141,6 +142,8 @@
             this.txtIntro.Name = "txtIntro";
             this.txtIntro.Size = new System.Drawing.Size(85, 20);
             this.txtIntro.TabIndex = 7;
+            this.txtIntro.Text = "Notes";
+            this.txtIntro.TextChanged += new System.EventHandler(this.txtIntro_TextChanged);
             // 
             // txtAcronyme
             // 
@@ -148,6 +151,8 @@
             this.txtAcronyme.Name = "txtAcronyme";
             this.txtAcronyme.Size = new System.Drawing.Size(63, 20);
             this.txtAcronyme.TabIndex = 9;
+            this.txtAcronyme.Text = "SRD";
+            this.txtAcronyme.TextChanged += new System.EventHandler(this.txtAcronyme_TextChanged);
             // 
             // textBox1
             // 
@@ -362,6 +367,7 @@
             this.cboSeparateur1.Size = new System.Drawing.Size(57, 21);
             this.cboSeparateur1.TabIndex = 30;
             this.cboSeparateur1.Text = "Séparateur";
+            this.cboSeparateur1.SelectedIndexChanged += new System.EventHandler(this.cboSeparateur1_SelectedIndexChanged);
             // 
             // lblDepartInfo
             // 
@@ -426,9 +432,9 @@
             // 
             this.cboChoixTypeFilename.FormattingEnabled = true;
             this.cboChoixTypeFilename.Items.AddRange(new object[] {
-            ".docx, .doc",
+            ".doc*",
             ".txt",
-            ".odt, .odtm"});
+            ".odt*"});
             this.cboChoixTypeFilename.Location = new System.Drawing.Point(636, 47);
             this.cboChoixTypeFilename.Name = "cboChoixTypeFilename";
             this.cboChoixTypeFilename.Size = new System.Drawing.Size(90, 21);
@@ -443,6 +449,7 @@
             this.chkInclureNomCours.TabIndex = 38;
             this.chkInclureNomCours.Text = "Inclure nom du cours";
             this.chkInclureNomCours.UseVisualStyleBackColor = true;
+            this.chkInclureNomCours.CheckedChanged += new System.EventHandler(this.chkInclureNomCours_CheckedChanged);
             // 
             // cboSeparateur2
             // 
@@ -458,21 +465,23 @@
             this.cboSeparateur2.Size = new System.Drawing.Size(57, 21);
             this.cboSeparateur2.TabIndex = 39;
             this.cboSeparateur2.Text = "Séparateur";
+            this.cboSeparateur2.SelectedIndexChanged += new System.EventHandler(this.cboSeparateur2_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cboSeparateur3
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cboSeparateur3.FormattingEnabled = true;
+            this.cboSeparateur3.Items.AddRange(new object[] {
             "aucun",
             "- tiret",
             "_ tiret bas",
             ". point",
             " espace"});
-            this.comboBox2.Location = new System.Drawing.Point(618, 100);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(57, 21);
-            this.comboBox2.TabIndex = 40;
-            this.comboBox2.Text = "Séparateur";
+            this.cboSeparateur3.Location = new System.Drawing.Point(618, 100);
+            this.cboSeparateur3.Name = "cboSeparateur3";
+            this.cboSeparateur3.Size = new System.Drawing.Size(57, 21);
+            this.cboSeparateur3.TabIndex = 40;
+            this.cboSeparateur3.Text = "Séparateur";
+            this.cboSeparateur3.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // cboIntroSemaine
             // 
@@ -493,6 +502,7 @@
             this.cboIntroSemaine.Size = new System.Drawing.Size(87, 21);
             this.cboIntroSemaine.TabIndex = 41;
             this.cboIntroSemaine.Text = "Intro";
+            this.cboIntroSemaine.SelectedIndexChanged += new System.EventHandler(this.cboIntroSemaine_SelectedIndexChanged);
             // 
             // cboChoixNumeroFin
             // 
@@ -535,7 +545,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboChoixNumeroFin);
             this.Controls.Add(this.cboIntroSemaine);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboSeparateur3);
             this.Controls.Add(this.cboSeparateur2);
             this.Controls.Add(this.chkInclureNomCours);
             this.Controls.Add(this.cboChoixTypeFilename);
@@ -621,7 +631,7 @@
         private System.Windows.Forms.ComboBox cboChoixTypeFilename;
         private System.Windows.Forms.CheckBox chkInclureNomCours;
         private System.Windows.Forms.ComboBox cboSeparateur2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cboSeparateur3;
         private System.Windows.Forms.ComboBox cboIntroSemaine;
         private System.Windows.Forms.ComboBox cboChoixNumeroFin;
         private System.Windows.Forms.Label label7;

@@ -23,11 +23,14 @@ namespace FileRenamer
             InitializeComponent();
         }
         string searchfile;  //nom des fichiers à rechercher avec *
-        string folderpath = "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\ICT\\123";
+        string folderpath;  //path du folder.
         DirectoryInfo folder = null;
         string placeholderchoixrepertoire = "Exemple: P:\\2eme année";
+
+        int numerofin = 0;  //si 0 alors c'est le numero de la semaine, et si 1 alors numéro dans le nom du fichier
         private void CmdLancer_Click(object sender, EventArgs e)
         {
+            folderpath = txtChoixRepertoire.Text;
             folder = new DirectoryInfo(folderpath);
             //test pour début de renommer un fichier:
             StreamWriter ecrivain = null;
@@ -49,7 +52,7 @@ namespace FileRenamer
                     searchfile = txtTxtSearchFilename.Text + "*.*";
                     break;
                 case "contenant":
-                    searchfile = "*" + txtTxtSearchFilename.Text+ "*.*";
+                    searchfile = "*" + txtTxtSearchFilename.Text + "*.*";
                     break;
                 case "se terminant par":
                     searchfile = "*" + txtTxtSearchFilename.Text + ".*";
@@ -64,7 +67,7 @@ namespace FileRenamer
             {
                 string filename = fileinrun.ToString();
                 fileinrunpath = fileinrun;  //attribuer le fullname au path
-                filename = filename.Substring(filename.LastIndexOf("\\")+1);    //ne prendre que le nom à la fin du path;
+                filename = filename.Substring(filename.LastIndexOf("\\") + 1);    //ne prendre que le nom à la fin du path;
                 if (filename.Contains(txtTxtSearchFilename.Text))
                 {
                     i++;
@@ -80,19 +83,72 @@ namespace FileRenamer
                     numcours = coursname.Substring(coursname.LastIndexOf("\\") + 1, 3);
                     coursname = typecours + numcours;
 
-                    //Définition du nouveau nom du fichier avec les infos prises précedemment.
-                    newname = String.Format("{0}-{1}_{2}-S{3}.docx", intro, useracronyme, coursname, numsemaine);
+
+                    //construire le lbl Result Structure.
+                    newname = "";    //vider le nouveau nom ancien
+
+                    if (chkIntro.Checked && txtIntro.Text != "")    //si intro coché et rempli
+                    {
+                        newname += txtIntro.Text;   //ajouter l'introduction
+                    }
+                    if (cboSeparateur1.SelectedIndex > 0)   //si separateur est sélectionné et n'est pas aucun.
+                    {
+                        newname += cboSeparateur1.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 1
+                    }
+                    if (chkAcronyme.Checked && txtAcronyme.Text != "")      //si acronyme coché et rempli
+                    {
+                        newname += txtAcronyme.Text;    //on ajoute l'acronyme trouvé plus haut
+                    }
+                    if (cboSeparateur2.SelectedIndex > 0)  //si separateur est sélectionné et n'est pas aucun.
+                    {
+                        newname += cboSeparateur2.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 2
+                    }
+                    if (chkInclureNomCours.Checked)
+                    {
+                        newname += coursname;    //on ajoute un nom de cours pour ce fichier
+                    }
+                    if (cboSeparateur3.SelectedIndex > 0)  //si separateur est sélectionné et n'est pas aucun.
+                    {
+                        newname += cboSeparateur3.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 3
+                    }
+
+                    if (cboIntroSemaine.SelectedIndex > 0)
+                    {
+                        newname += cboIntroSemaine.SelectedItem;    //on ajoute l'introduction de la semaine ou numéro
+                    }
+                    if (cboChoixNumeroFin.SelectedIndex >= 0)
+                    {
+                        if (cboChoixNumeroFin.SelectedItem == "Numéro de semaine auto") //choix du numéro (semaine ou nom du fichier).
+                        {
+                            numerofin = 0;
+
+                            //Trouver le numéro de la semaine
+                            DateTime timeofcreation = File.GetCreationTime(fileinrun);
+                            MessageBox.Show(timeofcreation.ToString());
+
+                            newname += "6"; //numéro de semaine imaginaire
+                        }
+                        else
+                        {
+                            newname += "5"; //numéro dans le fichier.
+                        }
+                    }
+
+
+
+
+
 
                     //TODO: créer le dossier "Notes" si il n'existe pas:
                     // Directory.CreateDirectory();
 
-                    string oldfileinrunpath = "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\" + typecours + "\\" + numcours + "\\" + filename;
-                    File.Copy(oldfileinrunpath, "C:\\Users\\PC_Samuel_01\\Documents\\TEMP\\testsFilerenamer\\2emeannee\\ICT\\123\\Notes\\" + newname);
+                    string oldfileinrunpath = txtChoixRepertoire.Text + "\\" + typecours + "\\" + numcours + "\\" + filename;
+                    //File.Copy(oldfileinrunpath, txtChoixRepertoire.Text + \\Notes\\" + newname);
                     label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
                     label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
 
                     //supprimer l'ancien fichier nom renommé encore à l'emplacement dans le dossier du module:
-                    File.Delete(oldfileinrunpath);
+                    //File.Delete(oldfileinrunpath);
                     label1.Text += "\nFichier base supprimé: " + filename;
 
                 }
@@ -156,7 +212,7 @@ namespace FileRenamer
             if (txtChoixRepertoire.Text == placeholderchoixrepertoire)
             {
                 txtChoixRepertoire.Text = "";
-               
+
             }
         }
 
@@ -171,18 +227,18 @@ namespace FileRenamer
 
         private void CmdQuitter_Click(object sender, EventArgs e)
         {
-            if (lstErrors.Items.Count==0)   //il n'y a plus d'erreurs à gérer.
+            if (lstErrors.Items.Count == 0)   //il n'y a plus d'erreurs à gérer.
             {
                 Application.Exit();
             }
             else
             {
                 //Pour les tests:
-            Application.Exit();
+                Application.Exit();
                 MessageBox.Show("Il reste encore des erreurs à gérer ! Ne quitter pas avant d'avoir tout géré !");
             }
 
-            
+
         }
 
         private void CmdEcraser_Click(object sender, EventArgs e)
@@ -256,16 +312,18 @@ namespace FileRenamer
             {
                 txtIntro.Enabled = false;
             }
+            lblResultStructureChange();
         }
 
-        
+
 
         private void CboChoixNumeroFin_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboChoixNumeroFin.SelectedIndex ==1)    //donc que c'est sur Numéro semaine auto.
+            if (cboChoixNumeroFin.SelectedIndex == 1)    //donc que c'est sur Numéro semaine auto.
             {
 
-            } 
+            }
+            lblResultStructureChange();
         }
 
         private void ChkAcronyme_CheckedChanged(object sender, EventArgs e)
@@ -278,6 +336,113 @@ namespace FileRenamer
             {
                 txtAcronyme.Enabled = false;
             }
+            lblResultStructureChange();
+        }
+
+        private void txtIntro_TextChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+
+        private void txtAcronyme_TextChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+        private void cboSeparateur2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+        private void chkInclureNomCours_CheckedChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+        private void cboIntroSemaine_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
+        }
+
+        void lblResultStructureChange()
+        {
+            //construire le lbl Result Structure.
+            string structureex = "de ";
+
+            //nom avant:
+            switch (cboPositionTxtSearchFilename.SelectedItem)
+            {
+                case "commencant par":
+                    structureex += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    break;
+                case "contenant":
+                    structureex += "test-" + txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    break;
+                case "se terminant par":
+                    structureex += "test-" + txtTxtSearchFilename.Text + cboChoixTypeFilename.Text;
+                    break;
+                default:
+                    structureex += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    break;
+            }
+
+            structureex += " renommé en ";
+
+            if (chkIntro.Checked && txtIntro.Text != "")    //si intro coché et rempli
+            {
+                structureex += txtIntro.Text;   //ajouter l'introduction
+            }
+            if (cboSeparateur1.SelectedIndex > 0)   //si separateur est sélectionné et n'est pas aucun.
+            {
+                structureex += cboSeparateur1.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 1
+            }
+            if (chkAcronyme.Checked && txtAcronyme.Text != "")      //si acronyme coché et rempli
+            {
+                structureex += txtAcronyme.Text;    //on ajoute l'acronyme
+            }
+            if (cboSeparateur2.SelectedIndex > 0)  //si separateur est sélectionné et n'est pas aucun.
+            {
+                structureex += cboSeparateur2.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 2
+            }
+            if (chkInclureNomCours.Checked)
+            {
+                structureex += "ICT114";    //on ajoute un nom de cours fictif
+            }
+            if (cboSeparateur3.SelectedIndex > 0)  //si separateur est sélectionné et n'est pas aucun.
+            {
+                structureex += cboSeparateur3.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 3
+            }
+
+            if (cboIntroSemaine.SelectedIndex > 0)
+            {
+                structureex += cboIntroSemaine.SelectedItem;    //on ajoute l'introduction de la semaine ou numéro
+            }
+            if (cboChoixNumeroFin.SelectedIndex >= 0)
+            {
+                if (cboChoixNumeroFin.SelectedItem == "Numéro de semaine auto") //choix du numéro (semaine ou nom du fichier).
+                {
+                    numerofin = 0;
+                    structureex += "6"; //numéro de semaine imaginaire
+                }
+                else
+                {
+                    structureex += "5"; //numéro dans le fichier.
+                }
+            }
+
+
+            lblResultStructure.Text = structureex;
+        }
+
+        private void cboSeparateur1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblResultStructureChange();
         }
     }
 }
