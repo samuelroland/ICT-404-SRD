@@ -69,6 +69,7 @@
             this.cboChoixNumeroFin = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnValidationCours = new System.Windows.Forms.Button();
+            this.cmdClearLogs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -415,9 +416,11 @@
             // 
             this.cboChoixTypeFilename.FormattingEnabled = true;
             this.cboChoixTypeFilename.Items.AddRange(new object[] {
-            ".doc*",
+            "Toutes",
+            ".doc_",
             ".txt",
-            ".odt*"});
+            ".odt_",
+            ".pdf"});
             this.cboChoixTypeFilename.Location = new System.Drawing.Point(636, 47);
             this.cboChoixTypeFilename.Name = "cboChoixTypeFilename";
             this.cboChoixTypeFilename.Size = new System.Drawing.Size(90, 21);
@@ -493,7 +496,7 @@
             this.cboChoixNumeroFin.FormattingEnabled = true;
             this.cboChoixNumeroFin.Items.AddRange(new object[] {
             "Numéro de semaine auto",
-            "Premier numéro dans nom de fichier"});
+            "Numéro avant extension"});
             this.cboChoixNumeroFin.Location = new System.Drawing.Point(806, 101);
             this.cboChoixNumeroFin.Name = "cboChoixNumeroFin";
             this.cboChoixNumeroFin.Size = new System.Drawing.Size(179, 21);
@@ -519,12 +522,23 @@
             this.btnValidationCours.Text = "Valider et lancer le processus";
             this.btnValidationCours.UseVisualStyleBackColor = true;
             // 
+            // cmdClearLogs
+            // 
+            this.cmdClearLogs.Location = new System.Drawing.Point(617, 458);
+            this.cmdClearLogs.Name = "cmdClearLogs";
+            this.cmdClearLogs.Size = new System.Drawing.Size(171, 23);
+            this.cmdClearLogs.TabIndex = 45;
+            this.cmdClearLogs.Text = "Clear logs";
+            this.cmdClearLogs.UseVisualStyleBackColor = true;
+            this.cmdClearLogs.Click += new System.EventHandler(this.CmdClearLogs_Click);
+            // 
             // frmFileRenamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 734);
             this.ControlBox = false;
+            this.Controls.Add(this.cmdClearLogs);
             this.Controls.Add(this.btnValidationCours);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboChoixNumeroFin);
@@ -616,6 +630,7 @@
         private System.Windows.Forms.ComboBox cboChoixNumeroFin;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnValidationCours;
+        private System.Windows.Forms.Button cmdClearLogs;
     }
 }
 

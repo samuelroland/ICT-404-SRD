@@ -27,7 +27,7 @@ namespace FileRenamer
         DirectoryInfo folder = null;
         string placeholderchoixrepertoire = "Exemple: \"P:\\2eme année\"";
         string newname; //nouveau nom que le fichier aura.
-        string coursname = "ICT114";   //nom du cours correspondant aux notes.9
+        string coursname;   //nom du cours correspondant aux notes.
         string typecours;   //type du cours, MA ou ICT.
         string numcours;    //numéro du cours, ex: 114.
         string useracronyme;    //acronyme du user.
@@ -36,7 +36,7 @@ namespace FileRenamer
         string fileinrunpath;   //chemin accès au fichier en cours.
         int indextypemodule = 0;
         int numerofin = 0;  //si 0 alors c'est le numero de la semaine, et si 1 alors numéro dans le nom du fichier
-        DateTime[] listsofmondaythisyear= new DateTime[300];   //tableau des lundis de cette année scolaire.
+        DateTime[] listsofmondaythisyear = new DateTime[300];   //tableau des lundis de cette année scolaire.
 
 
         private void CmdLancer_Click(object sender, EventArgs e)
@@ -52,17 +52,21 @@ namespace FileRenamer
             switch (cboPositionTxtSearchFilename.SelectedItem)
             {
                 case "commencant par":
-                    searchfile = txtTxtSearchFilename.Text + "*.*";
+                    searchfile = txtTxtSearchFilename.Text + "*"; //texte possible que après
                     break;
                 case "contenant":
-                    searchfile = "*" + txtTxtSearchFilename.Text + "*.*";
+                    searchfile = "*" + txtTxtSearchFilename.Text + "*"; //texte possible avant et après.
                     break;
                 case "se terminant par":
-                    searchfile = "*" + txtTxtSearchFilename.Text + ".*";
+                    searchfile = "*" + txtTxtSearchFilename.Text;   //texte possible que avant
                     break;
                 default:
-                    searchfile = "*" + txtTxtSearchFilename.Text + "*.*";
+                    searchfile = txtTxtSearchFilename.Text + "*"; //par défaut que au commencant par.
                     break;
+            }
+            if (cboChoixTypeFilename.SelectedIndex < 0)   //si il est sélectionné et qu'il n'est pas sur Toutes.
+            {
+                searchfile += cboChoixTypeFilename.SelectedItem;
             }
 
             //Scann de tous les fichiers du répértoire:
@@ -70,8 +74,10 @@ namespace FileRenamer
             {
                 string filename = fileinrun.ToString();
                 fileinrunpath = fileinrun;  //attribuer le fullname au path
-                filename = filename.Substring(filename.LastIndexOf("\\") + 1);    //ne prendre que le nom à la fin du path;
-                if (filename.Contains(txtTxtSearchFilename.Text))
+                filename = filename.Substring(filename.LastIndexOf("\\") + 1);    //ne prendre que le nom à la fin du path avec extension
+                string fileinrunext = filename.Substring(filename.LastIndexOf("."));    //l'extension du fichier en cours avec ses différentes variantes (docx, doc, ...).
+
+                if (filename.Contains(txtTxtSearchFilename.Text))   //WIP de toute facon avec searchfile déjà bon !
                 {
                     i++;
 
@@ -79,11 +85,18 @@ namespace FileRenamer
                     //Pour simplifier la tache pour retrouver le nom du cours avec le nom du dossier. On prend déjà le parent pour avoir le path du dossier du cours.
                     coursname = Directory.GetParent(fileinrunpath).ToString();
                     //On prend ICT ou MA:
-                    MessageBox.Show(coursname.LastIndexOf("\\") - 4 + " second is " + coursname.IndexOf("\\", coursname.LastIndexOf("\\") - 6) + " " + coursname);
                     indextypemodule = coursname.IndexOf("\\", coursname.LastIndexOf("\\") - 6);
                     typecours = coursname.Substring(indextypemodule + 1, coursname.LastIndexOf("\\") - indextypemodule - 1);   //nb de chars = différence de pos des deux "/"
+
                     //On prend le numéro du module la fin après le "/" :
-                    numcours = coursname.Substring(coursname.LastIndexOf("\\") + 1, 3);
+                    if (typecours == "ma" || typecours == "MA" || typecours == "Ma" || typecours == "IEL" || typecours == "Iel" || typecours == "iel")
+                    {
+                        numcours = coursname.Substring(coursname.LastIndexOf("\\") + 1, 2);
+                    }
+                    else
+                    {
+                        numcours = coursname.Substring(coursname.LastIndexOf("\\") + 1, 3);
+                    }
                     coursname = typecours + numcours;
 
 
@@ -91,20 +104,22 @@ namespace FileRenamer
                     newname = "";    //vider le nouveau nom du fichier précédent
 
                     //Générer le nouveau nom selon les paramètres:
+                    newname = createnewfilname(false, filename, File.GetCreationTime(fileinrun));
 
-
+                    //ajouter l'extension de ce fichier:
+                    newname += fileinrunext;
 
                     //TODO: créer le dossier "Notes" si il n'existe pas:
                     // Directory.CreateDirectory();
-
+                    lstHistorique.Items.Add(filename + " dont le cours est" + coursname + " a été renommé en " + newname);
                     string oldfileinrunpath = txtChoixRepertoire.Text + "\\" + typecours + "\\" + numcours + "\\" + filename;
-                    //File.Copy(oldfileinrunpath, txtChoixRepertoire.Text + \\Notes\\" + newname);
-                    label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
-                    label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
+                    //File.Copy(oldfileinrunpath, txtChoixRepertoire.Text + \\Notes\\" + newname);  //FAUX!!!!!!!!!!!!!!!!!!!!!!!!!
+                    //label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
+                    //label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
 
                     //supprimer l'ancien fichier nom renommé encore à l'emplacement dans le dossier du module:
                     //File.Delete(oldfileinrunpath);
-                    label1.Text += "\nFichier base supprimé: " + filename;
+                    //label1.Text += "\nFichier base supprimé: " + filename;
 
                 }
             }
@@ -122,9 +137,8 @@ namespace FileRenamer
             }
         }
 
-        string createnewfilname(bool fictivename) //créer le nouveau nom du fichier selon les paramètres et sans extension.
+        string createnewfilname(bool fictivename, string currentname, DateTime dateofcreation) //créer le nouveau nom du fichier selon les paramètres et sans extension.
         {
-            fictivename = true;
             string newfilename = "";
             if (chkIntro.Checked && intro != "")    //si intro coché et rempli
             {
@@ -159,7 +173,7 @@ namespace FileRenamer
                 newfilename += cboSeparateur3.SelectedItem.ToString().Substring(0, 1);  //prendre le premier caractères de l'item qui est le séparateur 3
             }
 
-            if (cboIntroSemaine.SelectedIndex > 0)
+            if (cboIntroSemaine.SelectedIndex >= 0) //slt si un item est sélectionné
             {
                 newfilename += cboIntroSemaine.SelectedItem;    //on ajoute l'introduction de la semaine ou numéro
             }
@@ -173,7 +187,7 @@ namespace FileRenamer
                     }
                     else
                     {
-                        numsemaine = wichweek(DateTime.Today);
+                        numsemaine = wichweek(dateofcreation);
                         newfilename += numsemaine;
                     }
                     numerofin = 0;
@@ -181,7 +195,18 @@ namespace FileRenamer
                 }
                 else
                 {
-                    newfilename += "5"; //numéro dans le fichier.
+
+                    if (fictivename == true)
+                    {
+                        newfilename += "5"; //numéro dans le fichier.
+                    }
+                    else
+                    {
+                        int numberinside;
+                        //WIP todo
+                        newfilename += numsemaine;
+                    }
+                    numerofin = 1;
                 }
             }
 
@@ -192,13 +217,13 @@ namespace FileRenamer
         {
             int numweek = 0;
             int compare = -1;   //si négatif = date est avant, et si positif = date est après.
-                
+
             DateTime dateinrun = listsofmondaythisyear[numweek];    //prend les dates des lundis des semaines CPNV
 
             while (compare < 0)
             {
                 numweek++;  //prend la semaine suivante.
-                dateinrun=  listsofmondaythisyear[numweek];
+                dateinrun = listsofmondaythisyear[numweek];
                 compare = dateinrun.CompareTo(dategiven);
             }
             numweek -= 1;   //c'est la semaine précédente.
@@ -216,29 +241,33 @@ namespace FileRenamer
 
         void lblResultStructureChange()     //changement des données lance un changement de la structure d'exemple
         {
+            //recharge variables
+            useracronyme = txtAcronyme.Text;    //acronyme du user.
+            intro = txtIntro.Text;
+
             //construire le lbl Result Structure.
             string structureex = "de ";
-
+            string namefictive = "";    //contient le nom fictive de départ.
             //nom avant:
             switch (cboPositionTxtSearchFilename.SelectedItem)
             {
                 case "commencant par":
-                    structureex += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    namefictive += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
                     break;
                 case "contenant":
-                    structureex += "test-" + txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    namefictive += "test-" + txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
                     break;
                 case "se terminant par":
-                    structureex += "test-" + "5" + txtTxtSearchFilename.Text + cboChoixTypeFilename.Text;
+                    namefictive += "test-" + "5" + txtTxtSearchFilename.Text + cboChoixTypeFilename.Text;
                     break;
                 default:
-                    structureex += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
+                    namefictive += txtTxtSearchFilename.Text + "5" + cboChoixTypeFilename.Text;
                     break;
             }
-
+            structureex += namefictive;
             structureex += " renommé en ";
 
-            //structureex += createnewfilname();    //nouveau nom généré
+            structureex += createnewfilname(true, namefictive, new DateTime(2019, 10, 04));    //nouveau nom fictif généré avec une date fictive
 
             structureex += cboChoixTypeFilename.SelectedItem;   //ajout de l'extension:
 
@@ -251,16 +280,16 @@ namespace FileRenamer
             //TODO: chercher fichiers de configuration, si trouve affiche dans le combobox en selectionnant le dernier utilisé(selon la date de derniere utilisation dans le fichier).
 
             //init variables
-             useracronyme = txtAcronyme.Text;    //acronyme du user.
-             intro = txtIntro.Text;
-            //listsofmondaythisyear[0] = new DateTime(1900, 1, 9);
+            useracronyme = txtAcronyme.Text;    //acronyme du user.
+            intro = txtIntro.Text;
+            listsofmondaythisyear[0] = new DateTime(1900, 1, 9);
 
             txtChoixRepertoire.Text = placeholderchoixrepertoire;
             cmdLancer.Focus();  //????????
             lblCheckRepertoire.Visible = false;
 
             //Charger les dates des lundis:
-             StreamReader lecteur = null;
+            StreamReader lecteur = null;
             int nbmondaysinlist = 0;
             using (lecteur = new StreamReader("listofmonday.txt"))
             {
@@ -269,15 +298,15 @@ namespace FileRenamer
                 while (ligneinrun != "## END")
                 {
                     ligneinrun = lecteur.ReadLine();    //lire la ligne suivante
-                    if (ligneinrun.StartsWith("#")==false && ligneinrun !="") //traiter la valeur de la ligne si commence pas avec # pour ne pas traiter les commentaires
+                    if (ligneinrun.StartsWith("#") == false && ligneinrun != "") //traiter la valeur de la ligne si commence pas avec # pour ne pas traiter les commentaires
                     {
-                        listsofmondaythisyear[nbmondaysinlist + 1] =  DateTime.Parse(ligneinrun);   //mettre dans le tableau de lundis à la case suivante, la ligne convertie en datetime
+                        listsofmondaythisyear[nbmondaysinlist + 1] = DateTime.Parse(ligneinrun);   //mettre dans le tableau de lundis à la case suivante, la ligne convertie en datetime
                         nbmondaysinlist++;
                     }
                 }
             }
 
-            int test2= wichweek(DateTime.Today);
+            int test2 = wichweek(DateTime.Today);
         }
 
         private void CmdParcourir_Click(object sender, EventArgs e)
@@ -421,6 +450,7 @@ namespace FileRenamer
 
         private void CboChoixNumeroFin_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cboChoixNumeroFin.SelectedIndex == 1)    //donc que c'est sur Numéro semaine auto.
             {
 
@@ -489,6 +519,9 @@ namespace FileRenamer
             lblResultStructureChange();
         }
 
-
+        private void CmdClearLogs_Click(object sender, EventArgs e)
+        {
+            lstHistorique.Items.Clear();
+        }
     }
 }
