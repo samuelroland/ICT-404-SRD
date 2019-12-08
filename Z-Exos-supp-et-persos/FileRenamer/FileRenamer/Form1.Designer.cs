@@ -37,8 +37,6 @@
             this.lblCheckRepertoire = new System.Windows.Forms.Label();
             this.txtIntro = new System.Windows.Forms.TextBox();
             this.txtAcronyme = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,7 +86,7 @@
             this.cmdLancer.Location = new System.Drawing.Point(821, 8);
             this.cmdLancer.Name = "cmdLancer";
             this.cmdLancer.Size = new System.Drawing.Size(78, 32);
-            this.cmdLancer.TabIndex = 1;
+            this.cmdLancer.TabIndex = 2;
             this.cmdLancer.Text = "Lancer !";
             this.cmdLancer.UseVisualStyleBackColor = true;
             this.cmdLancer.Click += new System.EventHandler(this.CmdLancer_Click);
@@ -108,7 +106,7 @@
             this.txtChoixRepertoire.Location = new System.Drawing.Point(301, 75);
             this.txtChoixRepertoire.Name = "txtChoixRepertoire";
             this.txtChoixRepertoire.Size = new System.Drawing.Size(517, 20);
-            this.txtChoixRepertoire.TabIndex = 3;
+            this.txtChoixRepertoire.TabIndex = 6;
             this.txtChoixRepertoire.Text = "C:\\Users\\samuel.roland\\Documents\\Github\\ICT-404-SRD\\Z-Exos-supp-et-persos\\FileRen" +
     "amer\\FileRenamer\\bin\\Debug\\2emeanneetest";
             this.txtChoixRepertoire.TextChanged += new System.EventHandler(this.TxtChoixRepertoire_TextChanged);
@@ -120,7 +118,7 @@
             this.cmdParcourir.Location = new System.Drawing.Point(824, 74);
             this.cmdParcourir.Name = "cmdParcourir";
             this.cmdParcourir.Size = new System.Drawing.Size(75, 23);
-            this.cmdParcourir.TabIndex = 4;
+            this.cmdParcourir.TabIndex = 7;
             this.cmdParcourir.Text = "Parcourir";
             this.cmdParcourir.UseVisualStyleBackColor = true;
             this.cmdParcourir.Click += new System.EventHandler(this.CmdParcourir_Click);
@@ -141,7 +139,7 @@
             this.txtIntro.Location = new System.Drawing.Point(83, 101);
             this.txtIntro.Name = "txtIntro";
             this.txtIntro.Size = new System.Drawing.Size(85, 20);
-            this.txtIntro.TabIndex = 7;
+            this.txtIntro.TabIndex = 9;
             this.txtIntro.Text = "Notes";
             this.txtIntro.TextChanged += new System.EventHandler(this.txtIntro_TextChanged);
             // 
@@ -150,25 +148,9 @@
             this.txtAcronyme.Location = new System.Drawing.Point(356, 102);
             this.txtAcronyme.Name = "txtAcronyme";
             this.txtAcronyme.Size = new System.Drawing.Size(63, 20);
-            this.txtAcronyme.TabIndex = 9;
+            this.txtAcronyme.TabIndex = 11;
             this.txtAcronyme.Text = "SRD";
             this.txtAcronyme.TextChanged += new System.EventHandler(this.txtAcronyme_TextChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(748, 154);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 11;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(714, 157);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Intro";
             // 
             // comboBox1
             // 
@@ -183,7 +165,7 @@
             this.comboBox1.Location = new System.Drawing.Point(366, 14);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(449, 21);
-            this.comboBox1.TabIndex = 12;
+            this.comboBox1.TabIndex = 1;
             // 
             // label3
             // 
@@ -317,7 +299,7 @@
             this.chkIntro.Location = new System.Drawing.Point(35, 101);
             this.chkIntro.Name = "chkIntro";
             this.chkIntro.Size = new System.Drawing.Size(47, 17);
-            this.chkIntro.TabIndex = 26;
+            this.chkIntro.TabIndex = 8;
             this.chkIntro.Text = "Intro";
             this.chkIntro.UseVisualStyleBackColor = true;
             this.chkIntro.CheckedChanged += new System.EventHandler(this.ChkIntro_CheckedChanged);
@@ -330,7 +312,7 @@
             this.chkAcronyme.Location = new System.Drawing.Point(244, 104);
             this.chkAcronyme.Name = "chkAcronyme";
             this.chkAcronyme.Size = new System.Drawing.Size(109, 17);
-            this.chkAcronyme.TabIndex = 27;
+            this.chkAcronyme.TabIndex = 11;
             this.chkAcronyme.Text = "Acronyme/Auteur";
             this.chkAcronyme.UseVisualStyleBackColor = true;
             this.chkAcronyme.CheckedChanged += new System.EventHandler(this.ChkAcronyme_CheckedChanged);
@@ -365,7 +347,7 @@
             this.cboSeparateur1.Location = new System.Drawing.Point(178, 101);
             this.cboSeparateur1.Name = "cboSeparateur1";
             this.cboSeparateur1.Size = new System.Drawing.Size(57, 21);
-            this.cboSeparateur1.TabIndex = 30;
+            this.cboSeparateur1.TabIndex = 10;
             this.cboSeparateur1.Text = "Séparateur";
             this.cboSeparateur1.SelectedIndexChanged += new System.EventHandler(this.cboSeparateur1_SelectedIndexChanged);
             // 
@@ -408,7 +390,7 @@
             this.cboPositionTxtSearchFilename.Location = new System.Drawing.Point(347, 48);
             this.cboPositionTxtSearchFilename.Name = "cboPositionTxtSearchFilename";
             this.cboPositionTxtSearchFilename.Size = new System.Drawing.Size(90, 21);
-            this.cboPositionTxtSearchFilename.TabIndex = 34;
+            this.cboPositionTxtSearchFilename.TabIndex = 3;
             this.cboPositionTxtSearchFilename.SelectedIndexChanged += new System.EventHandler(this.donneesmodifiees);
             // 
             // txtTxtSearchFilename
@@ -416,8 +398,9 @@
             this.txtTxtSearchFilename.Location = new System.Drawing.Point(443, 49);
             this.txtTxtSearchFilename.Name = "txtTxtSearchFilename";
             this.txtTxtSearchFilename.Size = new System.Drawing.Size(85, 20);
-            this.txtTxtSearchFilename.TabIndex = 35;
+            this.txtTxtSearchFilename.TabIndex = 4;
             this.txtTxtSearchFilename.Text = "docnotes";
+            this.txtTxtSearchFilename.TextChanged += new System.EventHandler(this.TxtTxtSearchFilename_TextChanged);
             // 
             // lblChoixTypeFilename
             // 
@@ -438,7 +421,8 @@
             this.cboChoixTypeFilename.Location = new System.Drawing.Point(636, 47);
             this.cboChoixTypeFilename.Name = "cboChoixTypeFilename";
             this.cboChoixTypeFilename.Size = new System.Drawing.Size(90, 21);
-            this.cboChoixTypeFilename.TabIndex = 37;
+            this.cboChoixTypeFilename.TabIndex = 5;
+            this.cboChoixTypeFilename.SelectedIndexChanged += new System.EventHandler(this.CboChoixTypeFilename_SelectedIndexChanged);
             // 
             // chkInclureNomCours
             // 
@@ -446,7 +430,7 @@
             this.chkInclureNomCours.Location = new System.Drawing.Point(487, 102);
             this.chkInclureNomCours.Name = "chkInclureNomCours";
             this.chkInclureNomCours.Size = new System.Drawing.Size(125, 17);
-            this.chkInclureNomCours.TabIndex = 38;
+            this.chkInclureNomCours.TabIndex = 13;
             this.chkInclureNomCours.Text = "Inclure nom du cours";
             this.chkInclureNomCours.UseVisualStyleBackColor = true;
             this.chkInclureNomCours.CheckedChanged += new System.EventHandler(this.chkInclureNomCours_CheckedChanged);
@@ -463,7 +447,7 @@
             this.cboSeparateur2.Location = new System.Drawing.Point(425, 100);
             this.cboSeparateur2.Name = "cboSeparateur2";
             this.cboSeparateur2.Size = new System.Drawing.Size(57, 21);
-            this.cboSeparateur2.TabIndex = 39;
+            this.cboSeparateur2.TabIndex = 12;
             this.cboSeparateur2.Text = "Séparateur";
             this.cboSeparateur2.SelectedIndexChanged += new System.EventHandler(this.cboSeparateur2_SelectedIndexChanged);
             // 
@@ -479,7 +463,7 @@
             this.cboSeparateur3.Location = new System.Drawing.Point(618, 100);
             this.cboSeparateur3.Name = "cboSeparateur3";
             this.cboSeparateur3.Size = new System.Drawing.Size(57, 21);
-            this.cboSeparateur3.TabIndex = 40;
+            this.cboSeparateur3.TabIndex = 14;
             this.cboSeparateur3.Text = "Séparateur";
             this.cboSeparateur3.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -500,7 +484,7 @@
             this.cboIntroSemaine.Location = new System.Drawing.Point(713, 101);
             this.cboIntroSemaine.Name = "cboIntroSemaine";
             this.cboIntroSemaine.Size = new System.Drawing.Size(87, 21);
-            this.cboIntroSemaine.TabIndex = 41;
+            this.cboIntroSemaine.TabIndex = 15;
             this.cboIntroSemaine.Text = "Intro";
             this.cboIntroSemaine.SelectedIndexChanged += new System.EventHandler(this.cboIntroSemaine_SelectedIndexChanged);
             // 
@@ -513,7 +497,7 @@
             this.cboChoixNumeroFin.Location = new System.Drawing.Point(806, 101);
             this.cboChoixNumeroFin.Name = "cboChoixNumeroFin";
             this.cboChoixNumeroFin.Size = new System.Drawing.Size(179, 21);
-            this.cboChoixNumeroFin.TabIndex = 43;
+            this.cboChoixNumeroFin.TabIndex = 16;
             this.cboChoixNumeroFin.Text = "A choisir";
             this.cboChoixNumeroFin.SelectedIndexChanged += new System.EventHandler(this.CboChoixNumeroFin_SelectedIndexChanged);
             // 
@@ -531,7 +515,7 @@
             this.btnValidationCours.Location = new System.Drawing.Point(617, 203);
             this.btnValidationCours.Name = "btnValidationCours";
             this.btnValidationCours.Size = new System.Drawing.Size(171, 23);
-            this.btnValidationCours.TabIndex = 45;
+            this.btnValidationCours.TabIndex = 17;
             this.btnValidationCours.Text = "Valider et lancer le processus";
             this.btnValidationCours.UseVisualStyleBackColor = true;
             // 
@@ -573,8 +557,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAcronyme);
             this.Controls.Add(this.txtIntro);
             this.Controls.Add(this.lblCheckRepertoire);
@@ -602,8 +584,6 @@
         private System.Windows.Forms.Label lblCheckRepertoire;
         private System.Windows.Forms.TextBox txtIntro;
         private System.Windows.Forms.TextBox txtAcronyme;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
