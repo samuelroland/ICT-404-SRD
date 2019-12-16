@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.cmdLancer = new System.Windows.Forms.Button();
             this.lblChoixRepertoire = new System.Windows.Forms.Label();
             this.txtChoixRepertoire = new System.Windows.Forms.TextBox();
@@ -70,16 +69,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnValidationCours = new System.Windows.Forms.Button();
             this.cmdClearLogs = new System.Windows.Forms.Button();
+            this.cmdCancel = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 456);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "logs temporaires............";
             // 
             // cmdLancer
             // 
@@ -123,6 +115,11 @@
             this.cmdParcourir.Text = "Parcourir";
             this.cmdParcourir.UseVisualStyleBackColor = true;
             this.cmdParcourir.Click += new System.EventHandler(this.CmdParcourir_Click);
+            // 
+            // fbdChoixRepertoire
+            // 
+            this.fbdChoixRepertoire.SelectedPath = "C:\\Users\\samuel.roland\\Documents\\Github\\ICT-404-SRD\\Z-Exos-supp-et-persos\\FileRen" +
+    "amer\\FileRenamer\\bin\\Debug\\2emeanneetest - Copie";
             // 
             // lblCheckRepertoire
             // 
@@ -430,6 +427,8 @@
             // chkInclureNomCours
             // 
             this.chkInclureNomCours.AutoSize = true;
+            this.chkInclureNomCours.Checked = true;
+            this.chkInclureNomCours.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkInclureNomCours.Location = new System.Drawing.Point(487, 102);
             this.chkInclureNomCours.Name = "chkInclureNomCours";
             this.chkInclureNomCours.Size = new System.Drawing.Size(125, 17);
@@ -532,12 +531,32 @@
             this.cmdClearLogs.UseVisualStyleBackColor = true;
             this.cmdClearLogs.Click += new System.EventHandler(this.CmdClearLogs_Click);
             // 
+            // cmdCancel
+            // 
+            this.cmdCancel.Location = new System.Drawing.Point(526, 459);
+            this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(85, 23);
+            this.cmdCancel.TabIndex = 46;
+            this.cmdCancel.Text = "Cancel";
+            this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(795, 171);
+            this.label1.Multiline = true;
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(701, 350);
+            this.label1.TabIndex = 47;
+            // 
             // frmFileRenamer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 734);
+            this.ClientSize = new System.Drawing.Size(1748, 734);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdClearLogs);
             this.Controls.Add(this.btnValidationCours);
             this.Controls.Add(this.label7);
@@ -578,7 +597,6 @@
             this.Controls.Add(this.txtChoixRepertoire);
             this.Controls.Add(this.lblChoixRepertoire);
             this.Controls.Add(this.cmdLancer);
-            this.Controls.Add(this.label1);
             this.Name = "frmFileRenamer";
             this.Text = "File Renamer - renommer des fichiers avec une structure particulière";
             this.Load += new System.EventHandler(this.FrmFileRenamer_Load);
@@ -588,8 +606,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmdLancer;
         private System.Windows.Forms.Label lblChoixRepertoire;
         private System.Windows.Forms.TextBox txtChoixRepertoire;
@@ -631,6 +647,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnValidationCours;
         private System.Windows.Forms.Button cmdClearLogs;
+        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.TextBox label1;
     }
 }
 

@@ -37,7 +37,36 @@ namespace FileRenamer
         int indextypemodule = 0;
         int numerofin = 0;  //si 0 alors c'est le numero de la semaine, et si 1 alors numéro dans le nom du fichier
         DateTime[] listsofmondaythisyear = new DateTime[300];   //tableau des lundis de cette année scolaire.
-
+        string[,] Logs = new string[,]
+        {
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"},
+            {"null", "null"}
+        };   //logs du renommage.
 
         private void CmdLancer_Click(object sender, EventArgs e)
         {
@@ -46,6 +75,15 @@ namespace FileRenamer
             //test pour début de renommer un fichier:
             StreamWriter ecrivain = null;
             int i = 0;
+
+            //Initialisation of the tables for logs
+            //for (int f = 0; f < 25; f++)
+            //{
+            //    for (int j = 0; j < 2; j++)
+            //    {
+            //        Logs[f, j] = "null";
+            //    }
+            //}
 
 
             //charger searchfile:
@@ -68,7 +106,7 @@ namespace FileRenamer
             {
                 searchfile += cboChoixTypeFilename.SelectedItem;
             }
-
+            int m = 0;  //index du tableau logs
             //Scann de tous les fichiers du répértoire:
             foreach (var fileinrun in Directory.GetFiles(folderpath, searchfile, SearchOption.AllDirectories))
             {
@@ -111,14 +149,31 @@ namespace FileRenamer
 
                     //TODO: créer le dossier "Notes" si il n'existe pas:
                     // Directory.CreateDirectory();
-                    lstHistorique.Items.Add(filename + " dont le cours est" + coursname + " a été renommé en " + newname);
+                    lstHistorique.Items.Add(filename + " dont le cours est " + coursname + " a été renommé en " + newname);
+
                     string oldfileinrunpath = txtChoixRepertoire.Text + "\\" + typecours + "\\" + numcours + "\\" + filename;
-                    //File.Copy(oldfileinrunpath, txtChoixRepertoire.Text + \\Notes\\" + newname);  //FAUX!!!!!!!!!!!!!!!!!!!!!!!!!
+                    Logs[m, 0] = oldfileinrunpath;  //ancien chemin du fichier: fichier inclus.
+                    Logs[m, 1] = txtChoixRepertoire.Text + "\\" + typecours + "\\" + numcours + "\\" + newname;    //nouveau chemin du fichier: fichier inclus
+                    if (File.Exists(Logs[m, 1]))
+                    {
+                        //ne rien faire.   
+                    }
+                    else
+                    {
+                        File.Move(Logs[m, 0], Logs[m, 1]);
+
+                        //File.Copy(Logs[m,0], Logs[m, 1]);
+                        //File.Delete(Logs[m, 0]);
+                    }
+
+                    //show logs for testings:
+                    label1.Text += "\n " + Logs[m, 0] + "  EN  " + Logs[m, 1];
+                    m++;
                     //label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
                     //label1.Text += " et fichier " + newname + " a été créé et posé à " + fileinrunpath;
 
                     //supprimer l'ancien fichier nom renommé encore à l'emplacement dans le dossier du module:
-                    //File.Delete(oldfileinrunpath);
+
                     //label1.Text += "\nFichier base supprimé: " + filename;
 
                 }
@@ -295,7 +350,7 @@ namespace FileRenamer
             {
                 string ligneinrun = ""; //ligne lue en cours
 
-                while (ligneinrun != "## END")
+                while (ligneinrun != "## END")  //tant que la dernière ligne du fichier n'est pas atteinte
                 {
                     ligneinrun = lecteur.ReadLine();    //lire la ligne suivante
                     if (ligneinrun.StartsWith("#") == false && ligneinrun != "") //traiter la valeur de la ligne si commence pas avec # pour ne pas traiter les commentaires
@@ -306,7 +361,15 @@ namespace FileRenamer
                 }
             }
 
-            int test2 = wichweek(DateTime.Today);
+            //Valeurs par défaut pour les tests:
+            cboPositionTxtSearchFilename.SelectedIndex = 0;
+            cboChoixTypeFilename.SelectedIndex = 1;
+            cboSeparateur1.SelectedIndex = 1;
+            cboSeparateur2.SelectedIndex = 3;
+            cboSeparateur3.SelectedIndex = 2;
+            cboIntroSemaine.SelectedIndex = 1;
+            cboChoixNumeroFin.SelectedIndex = 0;
+
         }
 
         private void CmdParcourir_Click(object sender, EventArgs e)
@@ -522,6 +585,14 @@ namespace FileRenamer
         private void CmdClearLogs_Click(object sender, EventArgs e)
         {
             lstHistorique.Items.Clear();
+        }
+
+        private void cmdCancel_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lstHistorique.Items.Count; i++)
+            {
+                File.Move(Logs[i, 1], Logs[i, 0]);  //renommer du nouveau nom avec l'ancien. (move dans le meme dossier avec un autre nom)
+            }
         }
     }
 }
